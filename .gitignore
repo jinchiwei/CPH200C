@@ -1,0 +1,46 @@
+# --- course materials & raw data (do not republish) -------------------------
+# Berkeley problem-set PDFs — academic integrity / copyright
+data/*.pdf
+
+# UCI Diabetes 130-US-Hospitals dataset — public benchmark, re-downloadable
+data/dataset_diabetes/
+data/dataset_diabetes.zip
+
+# --- python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- environments -----------------------------------------------------------
+.venv/
+venv/
+env/
+.env
+.python-version
+
+# --- notebooks --------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb_meta
+
+# --- editors / OS -----------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- experiment artifacts (large outputs; commit reports in results/ only) --
+exp/**/checkpoints/
+exp/**/cache/
+exp/**/*.pkl
+exp/**/*.joblib
+exp/**/*.parquet
+exp/**/wandb/
+exp/**/mlruns/

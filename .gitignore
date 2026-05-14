@@ -44,3 +44,6 @@ exp/**/*.joblib
 exp/**/*.parquet
 exp/**/wandb/
 exp/**/mlruns/
+
+# autoresearch: raw experiment artifacts (large, not committed)
+exp/

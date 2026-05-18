@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --job-name=cph_o1
-#SBATCH --time=00:55:00
+#SBATCH --time=04:00:00
 #SBATCH --mem=8G
 #SBATCH --cpus-per-task=2
-#SBATCH --partition=short
+#SBATCH --partition=long
 #SBATCH --output=/data/rauschecker2/jkw/cph/CPH200C/logs/slurm/llm_o1_%j.log
 
 # Run GPT o1 LLM evaluation via Versa on the same 300-row sub-sample as Opus 4.6.

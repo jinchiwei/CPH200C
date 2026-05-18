@@ -47,3 +47,9 @@ exp/**/mlruns/
 
 # autoresearch: raw experiment artifacts (large, not committed)
 exp/
+
+# CatBoost training-time artifacts (per-tree learn logs)
+catboost_info/
+
+# SLURM stdout / stderr (per-task logs)
+logs/

@@ -69,6 +69,278 @@ def auc_with_ci(y_true, p):
 
 # ----- per-config recipes ---------------------------------------------------
 
+def _target_encode_oof(tr_df: "pd.DataFrame", va_df: "pd.DataFrame", te_df: "pd.DataFrame",
+                       te_cols: list, label_col: str = "y_30d",
+                       smoothing: float = 20.0, n_splits: int = 5, seed: int = SEED):
+    """OOF target-encode high-cardinality categoricals.
+
+    Train encoding: K-fold OOF (each row's encoding comes from OTHER folds, never its own label).
+    Val/test encoding: from full training set.
+    Unseen categories: global train mean.
+    """
+    from sklearn.model_selection import StratifiedKFold
+    skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=seed)
+    global_mean = float(tr_df[label_col].mean())
+
+    tr_te = pd.DataFrame(index=tr_df.index)
+    for c in te_cols:
+        oof = np.full(len(tr_df), global_mean, dtype=np.float32)
+        for tr_idx, va_idx in skf.split(tr_df, tr_df[label_col]):
+            inner_tr = tr_df.iloc[tr_idx]
+            agg = inner_tr.groupby(c, observed=True)[label_col].agg(["mean", "count"])
+            te_map = (agg["mean"] * agg["count"] + global_mean * smoothing) / (agg["count"] + smoothing)
+            oof[va_idx] = tr_df.iloc[va_idx][c].map(te_map).fillna(global_mean).astype(np.float32).values
+        tr_te[c + "_te"] = oof
+
+    full_encoding = {}
+    for c in te_cols:
+        agg = tr_df.groupby(c, observed=True)[label_col].agg(["mean", "count"])
+        full_encoding[c] = ((agg["mean"] * agg["count"] + global_mean * smoothing) /
+                            (agg["count"] + smoothing)).to_dict()
+
+    va_te = pd.DataFrame(index=va_df.index)
+    te_te = pd.DataFrame(index=te_df.index)
+    for c in te_cols:
+        va_te[c + "_te"] = va_df[c].map(full_encoding[c]).fillna(global_mean).astype(np.float32).values
+        te_te[c + "_te"] = te_df[c].map(full_encoding[c]).fillna(global_mean).astype(np.float32).values
+    return tr_te, va_te, te_te
+
+
+def _build_features_te_icd9(seed: int = SEED):
+    """Same base feature matrix as build_features, but diag_1/2/3 are OOF target-encoded
+    instead of bucketed into 9 categories. medical_specialty, payer_code also TE'd.
+
+    Returns (X_tr, X_va, X_te, y_tr, y_va, y_te).
+    """
+    from preprocessing import AGE_MIDPOINTS, DRUG_COLUMNS
+    df = load_diabetes()
+    df = clean_and_filter(df).reset_index(drop=True)
+    df["age_midpoint"] = df["age"].map(AGE_MIDPOINTS).astype(float)
+
+    numeric_cols = [
+        "age_midpoint", "time_in_hospital",
+        "num_lab_procedures", "num_procedures", "num_medications",
+        "number_outpatient", "number_emergency", "number_inpatient",
+        "number_diagnoses",
+    ]
+    # categoricals to OHE (low-cardinality)
+    ohe_cols = [
+        "race", "gender", "age",
+        "admission_type_id", "discharge_disposition_id", "admission_source_id",
+        "max_glu_serum", "A1Cresult", "change", "diabetesMed",
+    ] + DRUG_COLUMNS
+    ohe_cols = [c for c in ohe_cols if c in df.columns]
+    for c in ohe_cols:
+        df[c] = df[c].astype(str)
+
+    # high-cardinality cols to OOF target-encode (NO bucketing)
+    te_cols = ["diag_1", "diag_2", "diag_3", "medical_specialty", "payer_code"]
+    te_cols = [c for c in te_cols if c in df.columns]
+    for c in te_cols:
+        df[c] = df[c].astype(str)
+
+    X_num = df[numeric_cols].astype(float)
+    X_cat = pd.get_dummies(df[ohe_cols], drop_first=True, dtype=float)
+    X_base = pd.concat([X_num, X_cat], axis=1)
+    X_base.columns = [c.replace(" ", "_").replace("[", "").replace(")", "").replace("/", "_") for c in X_base.columns]
+    y = df["y_30d"].astype(int)
+    df_for_te = df[te_cols + ["y_30d"]].copy()
+
+    from sklearn.model_selection import train_test_split
+    X_tv, X_te, y_tv, y_te = train_test_split(X_base, y, test_size=0.15, stratify=y, random_state=seed)
+    X_tr, X_va, y_tr, y_va = train_test_split(X_tv, y_tv, test_size=0.15/0.85, stratify=y_tv, random_state=seed)
+
+    te_tr_src = df_for_te.loc[X_tr.index]
+    te_va_src = df_for_te.loc[X_va.index]
+    te_te_src = df_for_te.loc[X_te.index]
+    tr_te, va_te, te_te = _target_encode_oof(te_tr_src, te_va_src, te_te_src, te_cols)
+
+    X_tr = pd.concat([X_tr, tr_te], axis=1)
+    X_va = pd.concat([X_va, va_te], axis=1)
+    X_te = pd.concat([X_te, te_te], axis=1)
+    return X_tr, X_va, X_te, y_tr, y_va, y_te
+
+
+def _build_features_native_cat(seed: int = SEED):
+    """For LightGBM/XGBoost native categorical support: keep categoricals as strings,
+    return cat_features index list. No OHE, no target encoding (the boosters do it internally).
+    """
+    from preprocessing import AGE_MIDPOINTS, DRUG_COLUMNS
+    df = load_diabetes()
+    df = clean_and_filter(df).reset_index(drop=True)
+    df["age_midpoint"] = df["age"].map(AGE_MIDPOINTS).astype(float)
+    numeric_cols = [
+        "age_midpoint", "time_in_hospital",
+        "num_lab_procedures", "num_procedures", "num_medications",
+        "number_outpatient", "number_emergency", "number_inpatient",
+        "number_diagnoses",
+    ]
+    cat_cols = [
+        "race", "gender", "age",
+        "admission_type_id", "discharge_disposition_id", "admission_source_id",
+        "payer_code", "medical_specialty",
+        "max_glu_serum", "A1Cresult", "change", "diabetesMed",
+        "diag_1", "diag_2", "diag_3",
+    ] + DRUG_COLUMNS
+    cat_cols = [c for c in cat_cols if c in df.columns]
+    for c in cat_cols:
+        df[c] = df[c].astype(str).fillna("?")
+    feat = df[numeric_cols + cat_cols].copy()
+    y = df["y_30d"].astype(int)
+    from sklearn.model_selection import train_test_split
+    X_tv, X_te, y_tv, y_te = train_test_split(feat, y, test_size=0.15, stratify=y, random_state=seed)
+    X_tr, X_va, y_tr, y_va = train_test_split(X_tv, y_tv, test_size=0.15/0.85, stratify=y_tv, random_state=seed)
+    cat_idx = [feat.columns.get_loc(c) for c in cat_cols]
+    return X_tr, X_va, X_te, y_tr, y_va, y_te, cat_idx, cat_cols
+
+
+def cfg_lightgbm_dart_raw_icd9(X_tr_ignored, X_va_ignored, X_te_ignored, y_tr_ignored, y_va_ignored):
+    """LightGBM dart with native categorical features (no OHE, raw ICD-9)."""
+    import lightgbm as lgb
+    X_tr, X_va, X_te, y_tr, y_va, y_te, cat_idx, cat_cols = _build_features_native_cat()
+    # LightGBM needs pandas `category` dtype for native cat handling, not raw `object`.
+    for c in cat_cols:
+        for d in (X_tr, X_va, X_te):
+            d[c] = d[c].astype("category")
+    spw = (len(y_tr) - y_tr.sum()) / max(y_tr.sum(), 1)
+    m = lgb.LGBMClassifier(
+        boosting_type="dart", n_estimators=500, num_leaves=31,
+        learning_rate=0.05, feature_fraction=0.85, bagging_fraction=0.85,
+        min_data_in_leaf=20, lambda_l1=0.1, lambda_l2=1.0,
+        drop_rate=0.1, scale_pos_weight=spw,
+        n_jobs=-1, random_state=SEED, verbose=-1,
+    )
+    m.fit(X_tr, y_tr, categorical_feature=cat_cols)
+    return m.predict_proba(X_te)[:, 1], {"model": "LightGBM dart + native cats (raw ICD-9)"}
+
+
+def cfg_xgb_early_stop_raw_icd9(X_tr_ignored, X_va_ignored, X_te_ignored, y_tr_ignored, y_va_ignored):
+    """XGBoost early-stop with experimental native categorical support (raw ICD-9)."""
+    import xgboost as xgb
+    X_tr, X_va, X_te, y_tr, y_va, y_te, cat_idx, cat_cols = _build_features_native_cat()
+    # Cast cat columns to pandas category dtype so XGBoost recognizes them
+    for c in cat_cols:
+        for d in (X_tr, X_va, X_te):
+            d[c] = d[c].astype("category")
+    spw = (len(y_tr) - y_tr.sum()) / max(y_tr.sum(), 1)
+    m = xgb.XGBClassifier(
+        n_estimators=2000, max_depth=5, learning_rate=0.03,
+        reg_alpha=0.1, reg_lambda=1.0, gamma=0.05, min_child_weight=5,
+        subsample=0.85, colsample_bytree=0.85,
+        scale_pos_weight=spw, eval_metric="auc", tree_method="hist",
+        enable_categorical=True,
+        n_jobs=-1, random_state=SEED,
+        early_stopping_rounds=50,
+    )
+    m.fit(X_tr, y_tr, eval_set=[(X_va, y_va)], verbose=False)
+    return m.predict_proba(X_te)[:, 1], {"model": "XGBoost early-stop + native cats (raw ICD-9)",
+                                          "best_iter": int(m.best_iteration)}
+
+
+def cfg_tabpfn_v3_te_icd9(X_tr_ignored, X_va_ignored, X_te_ignored, y_tr_ignored, y_va_ignored):
+    """TabPFN-v3 with OOF target-encoded high-card categoricals (no ICD-9 bucketing)."""
+    from tabpfn import TabPFNClassifier
+    from tabpfn.model_loading import ModelVersion
+    X_tr, X_va, X_te, y_tr, y_va, y_te = _build_features_te_icd9()
+    m = TabPFNClassifier.create_default_for_version(
+        ModelVersion.V3, device="cpu", ignore_pretraining_limits=True, random_state=SEED,
+    )
+    m.fit(X_tr.values, y_tr.values)
+    return m.predict_proba(X_te.values)[:, 1], {"model": "TabPFN-v3 + OOF target-encoded ICD-9",
+                                                 "n_features": int(X_tr.shape[1])}
+
+
+def cfg_tabicl_full_te_icd9(X_tr_ignored, X_va_ignored, X_te_ignored, y_tr_ignored, y_va_ignored):
+    """TabICL full + OOF target-encoded ICD-9."""
+    from tabicl import TabICLClassifier
+    X_tr, X_va, X_te, y_tr, y_va, y_te = _build_features_te_icd9()
+    m = TabICLClassifier(
+        n_estimators=2, batch_size=2, device="cpu", random_state=SEED, offload_mode="auto",
+    )
+    m.fit(X_tr.values, y_tr.values)
+    return m.predict_proba(X_te.values)[:, 1], {"model": "TabICL + OOF target-encoded ICD-9",
+                                                 "n_features": int(X_tr.shape[1])}
+
+
+def _build_catboost_features(seed: int = SEED):
+    """Build train/val/test split with RAW ICD-9 codes + native categoricals (no OHE).
+
+    CatBoost handles high-cardinality categoricals natively via cat_features.
+    Tests the classmate's hypothesis: raw ICD-9 (~700 unique) > 9-bucket aggregation.
+    """
+    df = load_diabetes()
+    df = clean_and_filter(df).reset_index(drop=True)
+    from preprocessing import AGE_MIDPOINTS, DRUG_COLUMNS
+    df["age_midpoint"] = df["age"].map(AGE_MIDPOINTS).astype(float)
+
+    numeric_cols = [
+        "age_midpoint", "time_in_hospital",
+        "num_lab_procedures", "num_procedures", "num_medications",
+        "number_outpatient", "number_emergency", "number_inpatient",
+        "number_diagnoses",
+    ]
+    cat_cols = [
+        "race", "gender", "age",
+        "admission_type_id", "discharge_disposition_id", "admission_source_id",
+        "payer_code", "medical_specialty",
+        "max_glu_serum", "A1Cresult",
+        "change", "diabetesMed",
+        "diag_1", "diag_2", "diag_3",          # <-- RAW ICD-9, no bucketing
+    ] + DRUG_COLUMNS
+    cat_cols = [c for c in cat_cols if c in df.columns]
+    for c in cat_cols:
+        df[c] = df[c].astype(str).fillna("?")
+
+    feat = df[numeric_cols + cat_cols].copy()
+    y = df["y_30d"].astype(int)
+    from sklearn.model_selection import train_test_split
+    X_tv, X_te, y_tv, y_te = train_test_split(feat, y, test_size=0.15, stratify=y, random_state=seed)
+    X_tr, X_va, y_tr, y_va = train_test_split(X_tv, y_tv, test_size=0.15/0.85, stratify=y_tv, random_state=seed)
+    cat_idx = [feat.columns.get_loc(c) for c in cat_cols]
+    return X_tr, X_va, X_te, y_tr, y_va, y_te, cat_idx
+
+
+def cfg_catboost_bucketed(X_tr, X_va, X_te, y_tr, y_va):
+    """CatBoost on the SAME 9-bucket-OHE features the rest of the leaderboard uses.
+    Isolates the encoding effect: this row vs cfg_catboost_raw_icd9 says how much
+    of the +0.013 AUC lift is from raw ICD-9 vs CatBoost-the-algorithm.
+    """
+    from catboost import CatBoostClassifier
+    spw = (len(y_tr) - y_tr.sum()) / max(y_tr.sum(), 1)
+    m = CatBoostClassifier(
+        iterations=2000, depth=6, learning_rate=0.05,
+        l2_leaf_reg=3.0, subsample=0.85,
+        scale_pos_weight=spw,
+        eval_metric="AUC", od_type="Iter", od_wait=100,
+        random_seed=SEED, verbose=0,
+    )
+    m.fit(X_tr, y_tr, eval_set=(X_va, y_va), use_best_model=True)
+    p_te = m.predict_proba(X_te)[:, 1]
+    return p_te, {"model": "CatBoost (9-bucket SDG+14 OHE)",
+                  "best_iter": int(m.get_best_iteration())}
+
+
+def cfg_catboost_raw_icd9(X_tr_ignored, X_va_ignored, X_te_ignored, y_tr_ignored, y_va_ignored):
+    """CatBoost with raw ICD-9 codes + native categoricals. Re-builds the split internally."""
+    from catboost import CatBoostClassifier
+    X_tr, X_va, X_te, y_tr, y_va, y_te, cat_idx = _build_catboost_features()
+    spw = (len(y_tr) - y_tr.sum()) / max(y_tr.sum(), 1)
+    m = CatBoostClassifier(
+        iterations=2000, depth=6, learning_rate=0.05,
+        l2_leaf_reg=3.0, subsample=0.85,
+        cat_features=cat_idx,
+        scale_pos_weight=spw,
+        eval_metric="AUC", od_type="Iter", od_wait=100,
+        random_seed=SEED, verbose=0,
+    )
+    m.fit(X_tr, y_tr, eval_set=(X_va, y_va), use_best_model=True)
+    p_te = m.predict_proba(X_te)[:, 1]
+    # Return the right shape — y_te alignment with main()'s y_te is guaranteed
+    # by same seed + same df source.
+    return p_te, {"model": "CatBoost + raw ICD-9 + native categoricals",
+                  "best_iter": int(m.get_best_iteration())}
+
+
 def cfg_xgb_wide_grid_1(X_tr, X_va, X_te, y_tr, y_va):
     import xgboost as xgb
     spw = (len(y_tr) - y_tr.sum()) / max(y_tr.sum(), 1)
@@ -405,6 +677,12 @@ CONFIGS = {
     "logreg_target_enc": cfg_logreg_target_enc,
     "stack_xgb_lr": cfg_stack_xgb_lr,
     "stack_xgb_lr_tabpfn": cfg_stack_xgb_lr_tabpfn,
+    "catboost_raw_icd9": cfg_catboost_raw_icd9,
+    "catboost_bucketed": cfg_catboost_bucketed,
+    "lightgbm_dart_raw_icd9": cfg_lightgbm_dart_raw_icd9,
+    "xgb_early_stop_raw_icd9": cfg_xgb_early_stop_raw_icd9,
+    "tabpfn_v3_te_icd9": cfg_tabpfn_v3_te_icd9,
+    "tabicl_full_te_icd9": cfg_tabicl_full_te_icd9,
     # Slim-features variants (wave 5)
     "lightgbm_dart_slim": cfg_lightgbm_dart,
     "xgb_early_stop_slim": cfg_xgb_early_stop,
@@ -464,7 +742,25 @@ def main():
                   for k, v in meta.items()},
     }, indent=2))
     np.save(out_results / "preds_test.npy", p_te.astype(np.float32))
+    np.save(out_results / "y_te_aligned.npy", y_te.values.astype(np.int8))
     np.save(per_cfg / "preds_test.npy", p_te.astype(np.float32))
+    np.save(per_cfg / "y_te_aligned.npy", y_te.values.astype(np.int8))
+    # Round-trip sanity check: re-load preds + labels and recompute AUC. If the
+    # disk-roundtripped AUC diverges from the in-memory one by >1e-4 something
+    # is silently mutating preds between scoring and saving. Loud failure here
+    # beats a wrong number in a downstream report.
+    from sklearn.metrics import roc_auc_score
+    p_loaded = np.load(out_results / "preds_test.npy")
+    y_loaded = np.load(out_results / "y_te_aligned.npy")
+    auc_roundtrip = roc_auc_score(y_loaded, p_loaded)
+    if abs(auc - auc_roundtrip) > 1e-4:
+        msg = (f"ALIGNMENT BUG: in-memory AUC={auc:.4f} but disk-roundtrip AUC="
+               f"{auc_roundtrip:.4f}. Preds/labels misaligned between scoring "
+               f"and saving. Investigate before trusting metrics.json.")
+        print(msg)
+        (out_results / "ALIGNMENT_BUG.txt").write_text(msg)
+        raise RuntimeError(msg)
+    print(f"  (verified: disk-roundtrip AUC={auc_roundtrip:.4f} matches)")
     print(summary)
 
 

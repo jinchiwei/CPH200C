@@ -1,0 +1,241 @@
+{
+  "deck_md_hash": "ea7109622001454d573e072ec5224239a48d0dbc7abc3a499e5088a5519bb2d2",
+  "mode": "expressive",
+  "shake_seed": "972ca3e26c43e94ec1d35ee05487a2a7675285f8c29e9e0889d023f275c7793a",
+  "slides": [
+    {
+      "content_hash": "e6472c86eda5868a460d9bd10ab943277588e8be75179d044e96b14924c11b32",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "gw=body_w*0.55\n_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/governance_models.png\", left=body_l, top=body_top+0.05, max_w=gw, max_h=body_h-0.95)\n_add_text(slide, \"Three operating systems (US / EU / Asia), tested on one case.\", left=body_l, top=body_top+body_h-0.82, width=gw, height=0.5, size=12.5, color_rgb=INK_RGB, font=SANS_FONT)\nxw=body_w*0.38; xx=body_l+body_w-xw\n_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/chest_xray_pd.png\", left=xx, top=body_top+0.05, max_w=xw, max_h=body_h-1.0)\n_add_text(slide, \"Deployed clinical AI is mostly radiology, the richest-evidence test case.\", left=xx, top=body_top+body_h-0.9, width=xw, height=0.5, size=12, color_rgb=INK_RGB, font=SANS_FONT)\n_add_text(slide, \"Chest radiograph: public domain, Wikimedia Commons.\", left=xx, top=body_top+body_h-0.4, width=xw, height=0.26, size=9, color_rgb=MUTED_RGB, font=MONO_FONT)\n_add_text(slide, \"Evidence base: npj Digital Medicine - Nature Medicine - Lancet Digital Health - JAMA - JMIR - Stanford AI Index 2026 - MIT NANDA\", left=body_l, top=body_top+body_h-0.22, width=gw, height=0.24, size=9.5, color_rgb=MUTED_RGB, font=MONO_FONT)",
+        "lede": "",
+        "notes": "The lens\nSet the frame: three regional AI operating systems, tested on deployed clinical AI because that is where the peer-reviewed evidence is strongest and the divergence sharpest. Read the evidence-base line aloud so the audience knows this is research-grounded. Then walk the four axes: policy, funding, technical, landscape.",
+        "section_label": "",
+        "title": "The lens: deployed clinical AI"
+      },
+      "slide_id": "h2-the-lens-deployed-clinical-ai"
+    },
+    {
+      "content_hash": "bf3c7054cdac5140212f62b2de44c192dee2d8df3708cbe58db0cf44185b4105",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "cards=[(\"CHINA\", DEEPPINK_RGB, \"Kai-Fu Lee\", \"AI Superpowers (2018)\", \"The age of implementation: execution and data, not breakthroughs, decide the race, favoring China.\"),\n(\"UNITED STATES\", TURQUOISE_RGB, \"Eric Schmidt et al.\", \"The Age of AI (2021); NSCAI\", \"AI is a national-security race the US must win; warned of China closing the gap fast.\"),\n(\"EUROPE / EU\", AMBER_RGB, \"Mario Draghi\", \"EU Competitiveness Report (2024)\", \"Europe regulates but does not build; structurally behind on compute, capital, and scale.\")]\nn=3; gap=0.3; cw=(body_w-gap*(n-1))/n; ch=body_h-1.55\nfor i in range(n):\n    head,col,who,work,pred=cards[i]; x=body_l+i*(cw+gap)\n    _add_rect(slide,left=x,top=body_top,width=cw,height=ch,fill_rgb=WHITE_RGB)\n    _add_rect(slide,left=x,top=body_top,width=cw,height=0.55,fill_rgb=col)\n    _add_text(slide,head,left=x+0.12,top=body_top,width=cw-0.24,height=0.55,size=12.5,color_rgb=_text_on(col),font=MONO_FONT,bold=True,align=PP_ALIGN.CENTER,anchor=MSO_ANCHOR.MIDDLE)\n    _add_text(slide,who,left=x+0.24,top=body_top+0.72,width=cw-0.48,height=0.45,size=16,color_rgb=INK_RGB,font=MONO_FONT,bold=True)\n    _add_text(slide,work,left=x+0.24,top=body_top+1.18,width=cw-0.48,height=0.4,size=11.5,color_rgb=col,font=MONO_FONT,bold=True)\n    _add_text(slide,pred,left=x+0.24,top=body_top+1.66,width=cw-0.48,height=ch-1.8,size=12.5,color_rgb=INK_RGB,font=SANS_FONT)\nby=body_top+ch+0.3; bandh=body_h-ch-0.3\n_add_rect(slide,left=body_l,top=by,width=body_w,height=bandh,fill_rgb=BLUEVIOLET_RGB)\n_add_text(slide,\"WHAT'S DIFFERENT NOW (2025):\",left=body_l+0.34,top=by+0.16,width=body_w-0.68,height=0.32,size=12,color_rgb=_text_on(BLUEVIOLET_RGB),font=MONO_FONT,bold=True)\n_add_text(slide,\"None predicted a Chinese OPEN model (DeepSeek) would reset the frontier while US labs re-closed. Lee's implementation thesis holds, but the ROI gap shows capability is not yet value.\",left=body_l+0.34,top=by+0.54,width=body_w-0.68,height=bandh-0.64,size=13,color_rgb=_text_on(BLUEVIOLET_RGB),font=SANS_FONT)",
+        "lede": "",
+        "notes": "Predictions vs now\nThis is the framing slide, and it earns the research framing. Three influential thinkers each forecast the AI race. China: Kai-Fu Lee's AI Superpowers (2018) argued we had entered the age of implementation, where execution and data, not breakthroughs, decide the winner, which favored China. US: Eric Schmidt, co-author of The Age of AI and chair of the National Security Commission on AI, framed it as a national-security race the US must win and warned China was closing fast. Europe: Mario Draghi's 2024 EU competitiveness report diagnosed that Europe regulates but does not build. What is different now, the purple band: the 2025 open-weight surge surprised everyone, a Chinese OPEN model reset the frontier while US labs re-closed, the opposite of what was expected. Lee's implementation thesis largely held, but the ROI gap shows capability is not yet value. Transition: with that frame, the four axes, starting with policy.",
+        "section_label": "",
+        "title": "What leaders predicted, and what’s different now"
+      },
+      "slide_id": "h2-what-leaders-predicted-and-what-s-different-now"
+    },
+    {
+      "content_hash": "f7878b53bcfbb46d393b6a28e4e6b3013c622b8372386dc7128d5274abe8ca57-divider",
+      "kind": "section-divider",
+      "params": {
+        "accent_hex": "#40E0D0",
+        "label": "Policy",
+        "notes": "Policy\nTransition: how each region regulates clinical AI."
+      },
+      "slide_id": "divider-h1-policy/h2-regulating-clinical-ai"
+    },
+    {
+      "content_hash": "f7878b53bcfbb46d393b6a28e4e6b3013c622b8372386dc7128d5274abe8ca57",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "fw=body_w*0.54\n_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/clinical_ai.png\", left=body_l, top=body_top, max_w=fw, max_h=body_h-0.4)\npx=body_l+fw+0.4; pw=body_w-fw-0.4\nitems=[(\"United States\", TURQUOISE_RGB, \"Device-by-device 510(k) + PCCP. ~1,451 AI/ML devices cleared, 76% radiology; generative/LLM CDS still has no pathway.\", \"Bedi et al., npj Digit Med 2025\"),\n(\"Europe / EU\", AMBER_RGB, \"AI Act high-risk stacked on MDR/IVDR (double conformity); few dual-designated notified bodies; health-data space deferred to 2029.\", \"EU AI Act + MDR/IVDR\"),\n(\"Asia (China)\", DEEPPINK_RGB, \"State-coordinated NMPA: 154 AI devices, ~80% the higher-risk Class III with mandatory clinical trials.\", \"China NMPA AI-device review, JMIR 2026\")]\nfor i in range(3):\n    lab,col,body,cit=items[i]; y=body_top+i*1.62\n    _add_rect(slide,left=px,top=y+0.04,width=0.16,height=0.16,fill_rgb=col)\n    _add_text(slide,lab,left=px+0.3,top=y-0.06,width=pw-0.3,height=0.4,size=14,color_rgb=INK_RGB,font=MONO_FONT,bold=True)\n    _add_text(slide,body,left=px,top=y+0.38,width=pw,height=0.86,size=12,color_rgb=INK_RGB,font=SANS_FONT)\n    _add_text(slide,cit,left=px,top=y+1.2,width=pw,height=0.26,size=10,color_rgb=col,font=MONO_FONT)\n_add_text(slide,\"Han et al. (Lancet Digit Health 2024): most clinical-AI RCTs remain few and early-stage.\",left=body_l,top=body_top+body_h-0.32,width=fw,height=0.3,size=10.5,color_rgb=MUTED_RGB,font=SANS_FONT)",
+        "lede": "",
+        "notes": "Policy\nThree regulatory philosophies, straight from the clinical literature. US clears the most devices (~1,451, 76% radiology, per Bedi et al. in npj Digital Medicine) device-by-device, but has no pathway for generative/LLM tools. Europe regulates hardest: AI Act high-risk stacked on the existing device law, a double conformity burden. China is state-coordinated, fewer approvals but mostly higher-risk Class III with trials (JMIR 2026). Footnote: Han et al. in Lancet Digital Health found clinical-AI RCTs are still few and early, so the evidence base is thinner than the device counts suggest. Transition: who pays.",
+        "section_label": "Policy",
+        "title": "Regulating clinical AI"
+      },
+      "slide_id": "h1-policy/h2-regulating-clinical-ai"
+    },
+    {
+      "content_hash": "258a6cd498d9aade2e84232fd5a16b3a31a061dab79ffe7a22ec41d76e528040-divider",
+      "kind": "section-divider",
+      "params": {
+        "accent_hex": "#40E0D0",
+        "label": "Funding",
+        "notes": "Funding\nTransition: capital versus the reimbursement pathway."
+      },
+      "slide_id": "divider-h1-funding/h2-capital-versus-reimbursement"
+    },
+    {
+      "content_hash": "258a6cd498d9aade2e84232fd5a16b3a31a061dab79ffe7a22ec41d76e528040",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "fw=body_w*0.48\n_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/investment_gap.png\", left=body_l, top=body_top, max_w=fw, max_h=body_h-0.4)\n_add_text(slide,\"Stanford AI Index 2026. US ~83% of global private AI investment.\",left=body_l,top=body_top+body_h-0.32,width=fw,height=0.3,size=10.5,color_rgb=MUTED_RGB,font=SANS_FONT)\npx=body_l+fw+0.4; pw=body_w-fw-0.4\nitems=[(\"United States\", TURQUOISE_RGB, \"Capital-rich, reimbursement-poor: mostly temporary CPT Category III codes + capped NTAP; few permanent Medicare pathways.\", \"Health Tech Investment Act 2025\"),\n(\"Europe / EU\", AMBER_RGB, \"National fast-tracks. Germany's DiGA reimburses ~60 apps (>1M prescriptions); France's PECAN copied it.\", \"DiGA / BfArM\"),\n(\"Asia (China)\", DEEPPINK_RGB, \"State funding + volume-based procurement drive deployment without a Western-style reimbursement market.\", \"NMPA / state procurement\")]\nfor i in range(3):\n    lab,col,body,cit=items[i]; y=body_top+i*1.5\n    _add_rect(slide,left=px,top=y+0.04,width=0.16,height=0.16,fill_rgb=col)\n    _add_text(slide,lab,left=px+0.3,top=y-0.06,width=pw-0.3,height=0.4,size=14,color_rgb=INK_RGB,font=MONO_FONT,bold=True)\n    _add_text(slide,body,left=px,top=y+0.38,width=pw,height=0.78,size=12,color_rgb=INK_RGB,font=SANS_FONT)\n    _add_text(slide,cit,left=px,top=y+1.14,width=pw,height=0.26,size=10,color_rgb=col,font=MONO_FONT)\n_add_text(slide,\"Insurers also use AI to deny coverage.\\nMello & Rose, JAMA Health Forum 2024\",left=px,top=body_top+body_h-0.62,width=pw,height=0.6,size=11,color_rgb=MUTED_RGB,font=SANS_FONT)",
+        "lede": "",
+        "notes": "Funding\nThe twist for clinical AI: the US has ~83% of global private AI investment (Stanford AI Index), but capital is not what gets a tool used, reimbursement is, and there the US is poor (temporary CPT codes, capped add-on payments). Europe leans on national fast-tracks, Germany's DiGA actually works (~60 apps, >1M prescriptions). China sidesteps reimbursement entirely via state procurement. For clinical AI, the payment pathway is the binding form of funding. Transition: the technical frontier.",
+        "section_label": "Funding",
+        "title": "Capital versus reimbursement"
+      },
+      "slide_id": "h1-funding/h2-capital-versus-reimbursement"
+    },
+    {
+      "content_hash": "7a7861c05840da67089eab9ef58f88b3f2c9fe1f3f1cf0bff126d40d98e34017-divider",
+      "kind": "section-divider",
+      "params": {
+        "accent_hex": "#40E0D0",
+        "label": "Technical developments",
+        "notes": "Technical developments\nTransition: the chip constraint and the two innovation paths it forces."
+      },
+      "slide_id": "divider-h1-technical-developments/h2-the-chip-war-reshapes-the-race"
+    },
+    {
+      "content_hash": "7a7861c05840da67089eab9ef58f88b3f2c9fe1f3f1cf0bff126d40d98e34017",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/chip_war_timeline.png\", left=body_l, top=body_top+0.05, max_w=body_w, max_h=body_h-0.55)\n_add_text(slide, \"From the Oct 2022 controls to the Jan 2026 H200 case-by-case reversal, the GPU ceiling is the constraint that shapes every region's technical strategy.\", left=body_l, top=body_top+body_h-0.42, width=body_w, height=0.38, size=11.5, color_rgb=MUTED_RGB, font=SANS_FONT, align=PP_ALIGN.CENTER)",
+        "lede": "",
+        "notes": "Chip war\nHow to read it: a timeline of US export controls and the NVIDIA-China saga. What to say: from October 2022, the US progressively tightened controls on advanced AI chips, closing loopholes, adding the H20 ban, then abruptly reversing in 2025-26 to case-by-case H200 sales with a tariff. The single point: the GPU ceiling is the binding constraint that shapes how every region pursues better models, which sets up the next slide. Transition: it pushed two very different innovation paths.",
+        "section_label": "Technical developments",
+        "title": "The chip war reshapes the race"
+      },
+      "slide_id": "h1-technical-developments/h2-the-chip-war-reshapes-the-race"
+    },
+    {
+      "content_hash": "395295127a7a1f8ffc1ec63e8ab27176946352690d8abc1da10a331d383b045d",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "gap=0.35; cw=(body_w-gap)/2; ch=2.45\ncards=[(\"UNITED STATES: SCALE\", TURQUOISE_RGB, \"Answer the race with compute: Stargate ($500B), ~$700B hyperscaler capex in 2026, nuclear power deals. Frontier models stay closed. Abundant GPUs mean less pressure to economize.\", \"Stargate; hyperscaler capex 2026\"),\n(\"CHINA: CONSTRAINT\", DEEPPINK_RGB, \"Capped on advanced GPUs by export controls, efficiency becomes the edge: mixture-of-experts, distillation, DeepSeek's ~$6M training run, cheap inference. Necessity drives method innovation.\", \"DeepSeek-V3 technical report, 2025\")]\nfor i in range(2):\n    head,col,body,cit=cards[i]; x=body_l+i*(cw+gap)\n    _add_rect(slide,left=x,top=body_top,width=cw,height=ch,fill_rgb=WHITE_RGB)\n    _add_rect(slide,left=x,top=body_top,width=cw,height=0.55,fill_rgb=col)\n    _add_text(slide,head,left=x+0.12,top=body_top,width=cw-0.24,height=0.55,size=14,color_rgb=_text_on(col),font=MONO_FONT,bold=True,align=PP_ALIGN.CENTER,anchor=MSO_ANCHOR.MIDDLE)\n    _add_text(slide,body,left=x+0.26,top=body_top+0.72,width=cw-0.52,height=ch-1.1,size=12.5,color_rgb=INK_RGB,font=SANS_FONT)\n    _add_text(slide,cit,left=x+0.26,top=body_top+ch-0.36,width=cw-0.52,height=0.3,size=10,color_rgb=col,font=MONO_FONT)\ney=body_top+ch+0.22\n_add_rect(slide,left=body_l,top=ey,width=body_w,height=0.55,fill_rgb=AMBER_RGB)\n_add_text(slide,\"EUROPE: the upstream chokepoint. ASML's EUV monopoly is the gate the controls run through.\",left=body_l+0.3,top=ey,width=body_w-0.6,height=0.55,size=12.5,color_rgb=_text_on(AMBER_RGB),font=SANS_FONT,bold=True,anchor=MSO_ANCHOR.MIDDLE)\nty=ey+0.55+0.2\n_add_rect(slide,left=body_l,top=ty,width=body_w,height=body_h-(ty-body_top),fill_rgb=BLUEVIOLET_RGB)\n_add_text(slide,\"The provocative read: the GPU ceiling may be pushing China toward more genuine methodology innovation, while the US mostly scales hardware.\",left=body_l+0.34,top=ty,width=body_w-0.68,height=body_h-(ty-body_top),size=13.5,color_rgb=_text_on(BLUEVIOLET_RGB),font=SANS_FONT,bold=True,anchor=MSO_ANCHOR.MIDDLE)",
+        "lede": "",
+        "notes": "Scale vs constraint\nThis is the most interesting technical point, and it represents both the US and China. The US answers the compute race with scale, Stargate's 500 billion dollars, roughly 700 billion in 2026 hyperscaler capex, nuclear deals, and keeps frontier models closed; abundant GPUs mean little pressure to economize. China, capped on advanced chips by export controls, is pushed the other way, toward method innovation: mixture-of-experts, distillation, DeepSeek's roughly 6-million-dollar training run, efficient inference. Europe's role is upstream, ASML's EUV monopoly is the chokepoint the controls run through. The provocative read, worth saying out loud: the GPU ceiling may be backfiring, driving genuine methodology innovation in China while the US mostly throws more hardware at the problem. Transition: and that open, efficient Chinese model is exactly what reached hospitals.",
+        "section_label": "Technical developments",
+        "title": "Scale versus constraint: two paths to better models"
+      },
+      "slide_id": "h1-technical-developments/h2-scale-versus-constraint-two-paths-to-better-models"
+    },
+    {
+      "content_hash": "181ee59da7c073fc0db9e4765a942051412a4ee58594d5016c1e2418027167a9",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "fw=body_w*0.54\n_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/open_weight_rise.png\", left=body_l, top=body_top, max_w=fw, max_h=body_h-0.4)\n_add_text(slide,\"Chinese open models, share of usage on a major model router.\",left=body_l,top=body_top+body_h-0.32,width=fw,height=0.3,size=10.5,color_rgb=MUTED_RGB,font=SANS_FONT)\npx=body_l+fw+0.4; pw=body_w-fw-0.4\nitems=[(\"The DeepSeek moment\", \"An open, frontier-quality reasoning model at low cost reset the board in Jan 2025; ~$600B wiped off NVIDIA in a day.\", \"NVIDIA -17% selloff, Jan 2025\"),\n(\"Into hospitals, fast\", \"~261 Chinese hospitals locally deployed DeepSeek-R1 in Q1 2025 (84% tertiary), outpacing regulation.\", \"DeepSeek-R1 in 261 hospitals, Nat Med 2025\"),\n(\"The Western void\", \"FDA's Jan 2026 CDS guidance is silent on generative/LLM clinical AI; the EU defaults it to high-risk.\", \"FDA CDS guidance, Jan 2026\")]\nfor i in range(3):\n    lab,body,cit=items[i]; y=body_top+i*1.5\n    _add_text(slide,lab,left=px,top=y,width=pw,height=0.4,size=14,color_rgb=DEEPPINK_RGB,font=MONO_FONT,bold=True)\n    _add_text(slide,body,left=px,top=y+0.4,width=pw,height=0.74,size=12,color_rgb=INK_RGB,font=SANS_FONT)\n    _add_text(slide,cit,left=px,top=y+1.14,width=pw,height=0.26,size=10,color_rgb=MUTED_RGB,font=MONO_FONT)\n_add_text(slide,\"RCT caution: an LLM did not significantly improve physician diagnosis.\\nGoh et al., JAMA Netw Open 2024\",left=px,top=body_top+body_h-0.62,width=pw,height=0.6,size=11,color_rgb=MUTED_RGB,font=SANS_FONT)",
+        "lede": "",
+        "notes": "Technical\nThe open-vs-closed split reaches medicine fastest where oversight is state-coordinated. After DeepSeek's open reasoning model landed (Jan 2025), a Nature Medicine study documented ~261 Chinese hospitals locally deploying it within one quarter, mostly tertiary centers, deployment outran regulation. Contrast the West: FDA's Jan 2026 CDS guidance is silent on generative AI; the EU defaults LLM clinical tools to high-risk. The model exists everywhere; one system let it reach the bedside at scale. Transition: who deploys, overall.",
+        "section_label": "Technical developments",
+        "title": "Open weights reach the bedside"
+      },
+      "slide_id": "h1-technical-developments/h2-open-weights-reach-the-bedside"
+    },
+    {
+      "content_hash": "288b83925cea5493a7217fbe74b96d0299fbee7bc7f81271bfa35eab70047abd",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "gap=0.35; cw=(body_w-gap)/2; ch=2.5\ncards=[(\"HEALTHBENCH\", TURQUOISE_RGB, \"Physician-built rubrics (262 doctors, 5,000 conversations) grade how well LLMs answer real health questions, the first serious clinical-LLM benchmark.\", \"Arora et al., HealthBench, 2025\"),\n(\"HEALTHADMINBENCH\", DEEPPINK_RGB, \"Tests computer-use agents on real healthcare administration tasks, prior auth, billing, scheduling, the unglamorous work that dominates cost.\", \"Bedi et al., HealthAdminBench, 2026\")]\nfor i in range(2):\n    head,col,body,cit=cards[i]; x=body_l+i*(cw+gap)\n    _add_rect(slide,left=x,top=body_top,width=cw,height=ch,fill_rgb=WHITE_RGB)\n    _add_rect(slide,left=x,top=body_top,width=cw,height=0.55,fill_rgb=col)\n    _add_text(slide,head,left=x+0.12,top=body_top,width=cw-0.24,height=0.55,size=14,color_rgb=_text_on(col),font=MONO_FONT,bold=True,align=PP_ALIGN.CENTER,anchor=MSO_ANCHOR.MIDDLE)\n    _add_text(slide,body,left=x+0.26,top=body_top+0.72,width=cw-0.52,height=ch-1.1,size=12.5,color_rgb=INK_RGB,font=SANS_FONT)\n    _add_text(slide,cit,left=x+0.26,top=body_top+ch-0.36,width=cw-0.52,height=0.3,size=10,color_rgb=col,font=MONO_FONT)\nty=body_top+ch+0.25\n_add_rect(slide,left=body_l,top=ty,width=body_w,height=body_h-(ty-body_top),fill_rgb=BLUEVIOLET_RGB)\n_add_text(slide,\"The limit: benchmarks measure what a model can say, graded against expert opinion, not whether it improves patient outcomes. We are getting good at testing capability, not benefit.\",left=body_l+0.34,top=ty,width=body_w-0.68,height=body_h-(ty-body_top),size=13.5,color_rgb=_text_on(BLUEVIOLET_RGB),font=SANS_FONT,bold=True,anchor=MSO_ANCHOR.MIDDLE)",
+        "lede": "",
+        "notes": "Evaluating clinical AI\nA technical development worth its own slide: the field is finally building serious clinical-AI benchmarks. HealthBench (Arora et al., 2025) used 262 physicians to write rubrics grading how well LLMs answer real health questions. HealthAdminBench (Bedi et al., 2026) tests computer-use agents on the unglamorous healthcare-admin work, prior authorization, billing, that dominates cost. The limit, in the band: these measure what a model can SAY, graded against expert opinion, not whether it improves patient outcomes. We are getting good at testing capability, not benefit, which sets up the deployment reality. Transition: so who actually deploys it.",
+        "section_label": "Technical developments",
+        "title": "Evaluating clinical AI: can we even measure it?"
+      },
+      "slide_id": "h1-technical-developments/h2-evaluating-clinical-ai-can-we-even-measure-it"
+    },
+    {
+      "content_hash": "5456c5b95ff9e621936c6846810ef038946d436a65b136365b8d0df36868e6d4-divider",
+      "kind": "section-divider",
+      "params": {
+        "accent_hex": "#40E0D0",
+        "label": "Landscape",
+        "notes": "Landscape\nTransition: who actually deploys, and whether it works."
+      },
+      "slide_id": "divider-h1-landscape/h2-who-deploys-clinical-ai-at-scale"
+    },
+    {
+      "content_hash": "5456c5b95ff9e621936c6846810ef038946d436a65b136365b8d0df36868e6d4",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "cols=[(\"UNITED STATES\", TURQUOISE_RGB, [\"~1,451 AI/ML devices cleared; 76% radiology\",\"Reimbursement-gated: temporary CPT III codes\",\"Slowest path from clearance to bedside\"], \"Bedi et al., npj Digit Med 2025\"),\n      (\"EUROPE / EU\", AMBER_RGB, [\"AI Act high-risk + MDR/IVDR double burden\",\"Nationwide AI mammography deployed (Germany)\",\"DiGA the working reimbursement route\"], \"Eisemann et al., Nat Med 2025\"),\n      (\"ASIA (CHINA-LED)\", DEEPPINK_RGB, [\"Ant Group AQ app: 100M+ users, 5,000+ hospitals\",\"~261 hospitals ran DeepSeek-R1 in Q1 2025\",\"Korea exports: Lunit FDA-cleared, ~1M mammograms/yr\"], \"DeepSeek-R1 in 261 hospitals, Nat Med 2025\")]\nn=3; gap=0.3; cw=(body_w-gap*(n-1))/n; hh=0.6; ch=body_h-0.42\nfor i in range(n):\n    head,col,pts,cit=cols[i]; x=body_l+i*(cw+gap)\n    _add_rect(slide,left=x,top=body_top,width=cw,height=ch,fill_rgb=WHITE_RGB)\n    _add_rect(slide,left=x,top=body_top,width=cw,height=hh,fill_rgb=col)\n    _add_text(slide,head,left=x+0.12,top=body_top,width=cw-0.24,height=hh,size=12.5,color_rgb=_text_on(col),font=MONO_FONT,bold=True,align=PP_ALIGN.CENTER,anchor=MSO_ANCHOR.MIDDLE)\n    for j in range(len(pts)):\n        py=body_top+hh+0.28+j*0.92\n        _add_rect(slide,left=x+0.26,top=py+0.05,width=0.12,height=0.12,fill_rgb=col)\n        _add_text(slide,pts[j],left=x+0.52,top=py-0.06,width=cw-0.74,height=0.82,size=12,color_rgb=INK_RGB,font=SANS_FONT)\n    _add_text(slide,cit,left=x+0.26,top=body_top+ch-0.42,width=cw-0.5,height=0.3,size=10,color_rgb=col,font=MONO_FONT)\n_add_text(slide,\"Approvals and deployment are different axes: the US leads on count, Asia on scale.\",left=body_l,top=body_top+body_h-0.3,width=body_w,height=0.28,size=11.5,color_rgb=MUTED_RGB,font=SANS_FONT,align=PP_ALIGN.CENTER)",
+        "lede": "",
+        "notes": "Landscape: who deploys\nDeployment inverts the approval count. The US approves the most devices but they are narrow and reimbursement-bottlenecked, so bedside reach is slow. Europe is slowest, gated by its own AI Act plus device law. Asia, led by China, deploys at a scale neither matches, Ant's AQ app reaches 100M+ users and 5,000+ hospitals, ~261 hospitals ran DeepSeek-R1 in Q1 2025 (Nature Medicine), and Korea exports FDA-cleared tools like Lunit. Approvals and deployment are different axes. Transition: but does deployment at scale actually help patients?",
+        "section_label": "Landscape",
+        "title": "Who deploys clinical AI at scale"
+      },
+      "slide_id": "h1-landscape/h2-who-deploys-clinical-ai-at-scale"
+    },
+    {
+      "content_hash": "02d768c9694463484ffda5fde1c3dcc1236e10aeba8e22808854f03112ad5a08",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "fw=body_w*0.46\n_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/validation_ladder.png\", left=body_l, top=body_top, max_w=fw, max_h=body_h-0.3)\n_add_text(slide,\"Agreement with a label is not benefit to a patient.\",left=body_l,top=body_top+body_h-0.3,width=fw,height=0.28,size=10.5,color_rgb=MUTED_RGB,font=SANS_FONT)\npx=body_l+fw+0.4; pw=body_w-fw-0.4\nbh=1.15\n_add_rect(slide,left=px,top=body_top+0.05,width=pw,height=bh,fill_rgb=DEEPPINK_RGB)\n_add_text(slide,\"95%\",left=px+0.22,top=body_top+0.05,width=1.7,height=bh,size=44,color_rgb=_text_on(DEEPPINK_RGB),font=MONO_FONT,bold=True,anchor=MSO_ANCHOR.MIDDLE)\n_add_text(slide,\"of enterprise gen-AI pilots showed no measurable P&L impact (MIT NANDA 2025)\",left=px+2.0,top=body_top+0.05,width=pw-2.2,height=bh,size=12,color_rgb=_text_on(DEEPPINK_RGB),font=SANS_FONT,bold=True,anchor=MSO_ANCHOR.MIDDLE)\nhy=body_top+bh+0.28\n_add_text(slide,\"Who closes the validation gap?\",left=px,top=hy,width=pw,height=0.35,size=13.5,color_rgb=INK_RGB,font=MONO_FONT,bold=True)\nrows=[(\"UNITED STATES\", TURQUOISE_RGB, \"Reimbursement scrutiny forces some evidence, but approval is still label-based.\"),\n(\"EUROPE / EU\", AMBER_RGB, \"Demands evidence ex-ante (AI Act + MDR), yet the health-data space is deferred to 2029.\"),\n(\"ASIA (CHINA)\", DEEPPINK_RGB, \"Deploys before outcomes are proven, the fastest rollout, the widest validation gap.\")]\nfor i in range(3):\n    tag,col,body=rows[i]; y=hy+0.46+i*0.74\n    _add_rect(slide,left=px,top=y+0.03,width=0.15,height=0.15,fill_rgb=col)\n    _add_text(slide,tag,left=px+0.28,top=y-0.05,width=pw-0.28,height=0.3,size=11.5,color_rgb=col,font=MONO_FONT,bold=True)\n    _add_text(slide,body,left=px+0.28,top=y+0.26,width=pw-0.32,height=0.46,size=11.5,color_rgb=INK_RGB,font=SANS_FONT)\n_add_text(slide,\"Han, Lancet Digit Health 2024  -  Challa et al. (MIT NANDA) 2025\",left=px,top=hy+0.46+3*0.74+0.02,width=pw,height=0.28,size=10,color_rgb=MUTED_RGB,font=MONO_FONT)",
+        "lede": "",
+        "notes": "Landscape: ROI reality\nThe sober counterpoint, and the most research-grounded slide. MIT NANDA found 95% of enterprise gen-AI pilots delivered no measurable financial impact. And in clinical AI specifically (the ladder figure): most tools are validated against expert labels, not patient outcomes, so high agreement with a clinician is not the same as being right about the patient. Han et al. (Lancet Digital Health) make the same point, the RCT evidence is thin. That gap, between deployed and beneficial, is exactly the deployed-clinical-models problem. Transition: pull it together.",
+        "section_label": "Landscape",
+        "title": "The ROI reality"
+      },
+      "slide_id": "h1-landscape/h2-the-roi-reality"
+    },
+    {
+      "content_hash": "4128d3adce78cfc888eb613a3b718eb9fb6a5dace7424bc4f50a2fc01efb2d23",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "cols=[(\"THE PROMISE\", TURQUOISE_RGB, \"AI augments the clinician, extending scarce expertise and catching what a tired human misses. The pitch behind every deployment.\", \"\"),\n(\"THE RCT REALITY\", DEEPPINK_RGB, \"Giving physicians an LLM did not significantly improve diagnostic reasoning vs usual resources, the model alone scored well; doctors underused it.\", \"Goh et al., JAMA Netw Open 2024\"),\n(\"THE HAZARD\", AMBER_RGB, \"Over-reliance breeds automation bias and deskilling, e.g. endoscopists detected fewer adenomas after routine AI use.\", \"Budzyn et al., Lancet Gastro 2025\")]\nn=3; gap=0.3; cw=(body_w-gap*(n-1))/n; ch=body_h-1.05\nfor i in range(n):\n    head,col,body,cit=cols[i]; x=body_l+i*(cw+gap)\n    _add_rect(slide,left=x,top=body_top,width=cw,height=ch,fill_rgb=WHITE_RGB)\n    _add_rect(slide,left=x,top=body_top,width=cw,height=0.55,fill_rgb=col)\n    _add_text(slide,head,left=x+0.12,top=body_top,width=cw-0.24,height=0.55,size=13,color_rgb=_text_on(col),font=MONO_FONT,bold=True,align=PP_ALIGN.CENTER,anchor=MSO_ANCHOR.MIDDLE)\n    _add_text(slide,body,left=x+0.24,top=body_top+0.72,width=cw-0.48,height=ch-1.1,size=12.5,color_rgb=INK_RGB,font=SANS_FONT)\n    if cit: _add_text(slide,cit,left=x+0.24,top=body_top+ch-0.36,width=cw-0.48,height=0.3,size=10,color_rgb=col,font=MONO_FONT)\nty=body_top+ch+0.22\n_add_rect(slide,left=body_l,top=ty,width=body_w,height=body_h-(ty-body_top),fill_rgb=BLUEVIOLET_RGB)\n_add_text(slide,\"Success hinges on the human-AI interaction, not accuracy. And the evidence is lopsided: the US and EU run these RCTs and automation-bias studies; China's population-scale deployment has outpaced interaction research.\",left=body_l+0.34,top=ty,width=body_w-0.68,height=body_h-(ty-body_top),size=13,color_rgb=_text_on(BLUEVIOLET_RGB),font=SANS_FONT,bold=True,anchor=MSO_ANCHOR.MIDDLE)",
+        "lede": "",
+        "notes": "Clinician + AI\nThe human dimension, and the heart of deployed clinical models. The promise (left): AI augments the clinician, extends scarce expertise. The RCT reality (middle): Goh et al. (JAMA Netw Open 2024) gave physicians an LLM and it did NOT significantly improve their diagnostic reasoning, strikingly, the model alone scored well, but doctors underused it. The hazard (right): over-reliance breeds automation bias and deskilling, endoscopists in a 2025 Lancet Gastro study detected fewer polyps after routine AI exposure. The band: deployed clinical AI succeeds or fails on the human-AI interaction, not model accuracy alone. This is the dimension accuracy metrics miss. Transition: pulling it together.",
+        "section_label": "Landscape",
+        "title": "Clinician and AI: help or hazard?"
+      },
+      "slide_id": "h1-landscape/h2-clinician-and-ai-help-or-hazard"
+    },
+    {
+      "content_hash": "1bb343ea09cabcb9972a83bb165c519280fb59c6cb243f70ebb65e4971a77e10-divider",
+      "kind": "section-divider",
+      "params": {
+        "accent_hex": "#40E0D0",
+        "label": "Synthesis",
+        "notes": "Synthesis\nTransition: the split in medicine, takeaways, references."
+      },
+      "slide_id": "divider-h1-synthesis/h2-regulate-build-deploy-in-medicine"
+    },
+    {
+      "content_hash": "1bb343ea09cabcb9972a83bb165c519280fb59c6cb243f70ebb65e4971a77e10",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/clinical_pathways.png\", left=body_l, top=body_top, max_w=body_w, max_h=body_h-1.0)\nby=body_top+body_h-0.85\n_add_rect(slide,left=body_l,top=by,width=body_w,height=0.85,fill_rgb=BLUEVIOLET_RGB)\n_add_text(slide,\"The bottleneck on deployed clinical AI is institutional, regulation, payment, and coordination, not model quality.\",left=body_l+0.34,top=by,width=body_w-0.68,height=0.85,size=14.5,color_rgb=_text_on(BLUEVIOLET_RGB),font=SANS_FONT,bold=True,anchor=MSO_ANCHOR.MIDDLE)",
+        "lede": "",
+        "notes": "Synthesis\nThe whole talk in one figure: three pathways clinical AI takes to patients. US approves device-by-device but stalls at reimbursement. Europe stacks the AI Act on device law, the slowest. China runs NMPA to state procurement to population-scale deployment. The band states the lesson: whether clinical AI reaches patients is decided by the institutional operating system, regulation, payment, coordination, more than by the model. Transition: takeaways.",
+        "section_label": "Synthesis",
+        "title": "Regulate, build, deploy, in medicine"
+      },
+      "slide_id": "h1-synthesis/h2-regulate-build-deploy-in-medicine"
+    },
+    {
+      "content_hash": "585fa1a8e389de59d566de77e7bf661c6af1bac6a50b037def1f82a90aa7f5a4",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "items=[(\"01\",\"The bottleneck on deployed clinical AI is institutional, regulation, payment, coordination, not model quality.\", TURQUOISE_RGB),\n(\"02\",\"Same three operating systems define clinical AI: the US approves, Europe regulates, Asia deploys.\", DEEPPINK_RGB),\n(\"03\",\"Open weights reach the bedside fastest under state coordination; the US and EU still lack a generative-clinical-AI pathway.\", AMBER_RGB),\n(\"04\",\"Measure what matters: shift clinical-AI evaluation from agreement-with-labels to patient outcomes.\", BLUEVIOLET_RGB)]\nbh=(body_h-0.45)/4\nfor i in range(4):\n    num,txt,col=items[i]; y=body_top+i*(bh+0.15)\n    _add_rect(slide,left=body_l,top=y,width=body_w,height=bh,fill_rgb=WHITE_RGB)\n    _add_rect(slide,left=body_l,top=y,width=1.05,height=bh,fill_rgb=col)\n    _add_text(slide,num,left=body_l,top=y,width=1.05,height=bh,size=26,color_rgb=_text_on(col),font=MONO_FONT,bold=True,align=PP_ALIGN.CENTER,anchor=MSO_ANCHOR.MIDDLE)\n    _add_text(slide,txt,left=body_l+1.32,top=y,width=body_w-1.6,height=bh,size=13.5,color_rgb=INK_RGB,font=SANS_FONT,anchor=MSO_ANCHOR.MIDDLE)",
+        "lede": "",
+        "notes": "Takeaways\nFour closers: one, the bottleneck is institutional not technical. Two, the regulate-build-deploy split holds, US approves, Europe regulates, Asia deploys. Three, open weights reach the bedside fastest under state coordination, while the US and EU lack a generative-clinical pathway. Four, the field needs to measure patient outcomes, not label-agreement. Then references and questions.",
+        "section_label": "Synthesis",
+        "title": "Takeaways and outlook"
+      },
+      "slide_id": "h1-synthesis/h2-takeaways-and-outlook"
+    },
+    {
+      "content_hash": "07fe16a61a3b6123cdae778ba4ef4fafab399f94ef556a4dee2ec52628417192",
+      "kind": "freeform",
+      "params": {
+        "_provenance": "agent",
+        "code": "rows=[[\"#\",\"Reference\",\"Venue / year\"],\n[\"1\",\"Han et al. - RCTs evaluating AI in clinical practice\",\"Lancet Digital Health 2024\"],\n[\"2\",\"Goh et al. - LLM influence on diagnostic reasoning (RCT)\",\"JAMA Network Open 2024\"],\n[\"3\",\"Eisemann et al. - Nationwide AI in mammography screening\",\"Nature Medicine 2025\"],\n[\"4\",\"Bedi et al. - FDA AI/ML-enabled device landscape\",\"npj Digital Medicine 2025\"],\n[\"5\",\"Chen et al. - AI medical devices approved by China NMPA\",\"JMIR Med Informatics 2026\"],\n[\"6\",\"DeepSeek-R1 deployed across Chinese hospitals\",\"Nature Medicine 2025\"],\n[\"7\",\"Mello & Rose - AI tools and insurance coverage denials\",\"JAMA Health Forum 2024\"],\n[\"8\",\"Stanford HAI - AI Index Report 2026\",\"Stanford HAI 2026\"],\n[\"9\",\"Challa et al. (MIT NANDA) - State of AI in Business\",\"MIT NANDA 2025\"],\n[\"10\",\"Arora et al. - HealthBench\",\"arXiv 2025\"]]\n_add_table(slide, rows=rows, left=body_l, top=body_top+0.05, width=body_w, max_height=body_h-0.7, header_rgb=accent_rgb)\n_add_text(slide,\"Framing: Lee, AI Superpowers (2018) - Schmidt et al., The Age of AI (2021) - Draghi, EU Competitiveness Report (2024).\",left=body_l,top=body_top+body_h-0.56,width=body_w,height=0.28,size=10.5,color_rgb=INK_RGB,font=MONO_FONT)\n_add_text(slide,\"Full source list with URLs in the companion research.md.\",left=body_l,top=body_top+body_h-0.28,width=body_w,height=0.26,size=10.5,color_rgb=MUTED_RGB,font=SANS_FONT)",
+        "lede": "",
+        "notes": "References\nLeave up for Q&A. The spine is peer-reviewed and recent: Han et al. (Lancet Digital Health) and Goh et al. (JAMA Network Open) on clinical-AI RCTs, Eisemann et al. (Nature Medicine) on deployed mammography AI, Bedi et al. (npj Digital Medicine) on the FDA device landscape, the Nature Medicine DeepSeek-in-hospitals study, plus the Stanford AI Index and MIT NANDA for the macro picture. Several are from the assignment's own reading list.",
+        "section_label": "Synthesis",
+        "title": "Key references"
+      },
+      "slide_id": "h1-synthesis/h2-key-references"
+    }
+  ],
+  "theme": "bone",
+  "version": 1
+}

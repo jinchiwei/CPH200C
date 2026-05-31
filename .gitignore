@@ -1,10 +1,10 @@
 # --- course materials & raw data (do not republish) -------------------------
 # Berkeley problem-set PDFs — academic integrity / copyright
-data/*.pdf
+**/data/*.pdf
 
 # UCI Diabetes 130-US-Hospitals dataset — public benchmark, re-downloadable
-data/dataset_diabetes/
-data/dataset_diabetes.zip
+**/data/dataset_diabetes/
+**/data/dataset_diabetes.zip
 
 # --- python -----------------------------------------------------------------
 __pycache__/
@@ -37,16 +37,16 @@ env/
 Thumbs.db
 
 # --- experiment artifacts (large outputs; commit reports in results/ only) --
-exp/**/checkpoints/
-exp/**/cache/
-exp/**/*.pkl
-exp/**/*.joblib
-exp/**/*.parquet
-exp/**/wandb/
-exp/**/mlruns/
+**/exp/**/checkpoints/
+**/exp/**/cache/
+**/exp/**/*.pkl
+**/exp/**/*.joblib
+**/exp/**/*.parquet
+**/exp/**/wandb/
+**/exp/**/mlruns/
 
 # autoresearch: raw experiment artifacts (large, not committed)
-exp/
+**/exp/
 
 # CatBoost training-time artifacts (per-tree learn logs)
 catboost_info/

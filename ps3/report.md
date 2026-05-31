@@ -7,11 +7,11 @@ org: "CPH 200C: Computational Precision Health"
 date: "2026-06-04"
 ---
 
-## Abstract
+# Abstract
 
 By 2026 the United States, Europe, and Asia are not running the same artificial-intelligence playbook at different speeds. They are running three different governing systems. The United States is market-led: light federal rules, the deepest pool of private capital, and closed frontier models. Europe is comprehensive-regulatory: a single horizontal law, the AI Act, now being softened under competitiveness pressure, paired with large sovereignty subsidies but little frontier building. Asia, led by China, is state-driven: iterative ministry rules, heavy industrial policy, an open-weight export strategy, population-scale deployment, and ownership of the physical hardware on which the entire industry runs. This report reads those three systems across four scopes, policy, funding, technical developments, and deployment landscape, and uses deployed clinical AI as the central, evidence-rich test case. The recurring finding is that the regions differ less in whether they deploy AI than in how, and that the binding constraint on real-world deployment, in medicine especially, is institutional (regulation, payment, and coordination) rather than model quality. A secondary thesis, sharpened by the 2025 chip-export regime, is that hardware scarcity may be pushing China toward genuine methodological innovation while the United States mostly scales compute.
 
-## 1. Introduction and framing
+# 1. Introduction and framing
 
 A useful way to read the global AI landscape is through three verbs: who writes the rules (regulate), who builds the frontier (build), and who deploys at scale (deploy). Almost no region does all three well, and each is, in effect, winning a different race.
 
@@ -19,27 +19,37 @@ The framing is not new. In *AI Superpowers* (2018), Kai-Fu Lee argued that the f
 
 What none of them anticipated is the event that reset the board in January 2025: a Chinese open-weight model, DeepSeek R1, reached frontier quality at a fraction of the cost, while United States labs moved further toward closed models. Lee's implementation thesis has largely held, but with a twist, and the gap between demonstrated capability and realized economic value has turned out to be the dominant story of the period.
 
-## 2. Policy and regulation
+![Figure 1. The three governing systems at a glance.](figures-report/governance_models.png)
 
-### 2.1 United States: executive whiplash and a state patchwork
+*Figure 1. The three governing systems at a glance.*
+
+
+# 2. Policy and regulation
+
+## 2.1 United States: executive whiplash and a state patchwork
 
 United States federal policy reversed sharply at the start of the second Trump administration. On January 20, 2025, the administration rescinded Biden's Executive Order 14110, and on January 23 issued "Removing Barriers to American Leadership in Artificial Intelligence" (Wiley 2025; White House 2025a). The resulting "Winning the Race: America's AI Action Plan," released July 23, 2025, is explicitly deregulatory, organized around accelerating innovation, building infrastructure, and leading international AI diplomacy, and was accompanied by an order barring federal procurement of language models judged ideologically non-neutral (White House 2025b; Skadden 2025).
 
 With no comprehensive federal framework, individual states legislated, producing a patchwork: Colorado's AI Act (delayed to June 2026), Texas TRAIGA (effective January 2026), California's SB 53 Transparency in Frontier AI Act (the lighter successor to the vetoed SB 1047), and New York's RAISE Act (Mintz 2025; NY Governor 2025). The federal response has been preemptive: a proposed moratorium on state AI laws failed in the Senate by 99 to 1, after which a December 2025 executive order directed federal agencies to challenge "burdensome" state statutes (StateScoop 2025; Akin Gump 2025). The net posture is a light federal touch, a thickening state patchwork, and an unresolved fight over who governs AI.
 
-### 2.2 Europe: the AI Act, and its 2025 softening
+## 2.2 Europe: the AI Act, and its 2025 softening
 
 Europe took the opposite bet. The EU AI Act (Regulation 2024/1689) entered into force in August 2024 on a phased schedule: prohibited practices from February 2025, general-purpose-model obligations from August 2025, and high-risk rules thereafter, with penalties up to 35 million euros or 7 percent of global turnover (European Commission 2024). A voluntary GPAI Code of Practice followed in July 2025, signed by most major United States labs (TTMS 2025).
 
 The defining development of late 2025, however, was retreat. Under competitiveness pressure crystallized by the Draghi report, the Commission published a "Digital Omnibus" on November 19, 2025 that delayed the high-risk regime to December 2027 (standalone systems) and August 2028 (systems embedded in regulated products, including medical devices); the separate AI Liability Directive was scrapped entirely (White & Case 2026; Corporate Europe Observatory 2026). Critics characterized the package as a rollback of digital rights. The underlying numbers explain the panic: only about 11 percent of EU firms use AI against a 75 percent target for 2030, roughly 73 percent of foundation models are United States-origin against 15 percent for China, and Europe holds only four of the world's top fifty technology firms (Carnegie 2025).
 
-### 2.3 Asia: one region, the full regulatory spectrum
+## 2.3 Asia: one region, the full regulatory spectrum
 
 Asia is the third governing system, but it is the least monolithic. It spans the entire regulatory range. China governs through a stack of vertical, fast-iterating ministry rules rather than an omnibus statute: the 2023 Interim Measures require public generative services to file with regulators (748 services filed by December 2025), and since September 2025 all AI-generated content must carry visible and metadata labels (China-Briefing 2023; Loeb 2025). China explicitly removed a comprehensive AI law from its 2025 agenda in favor of pilots and standards, and went on the diplomatic offensive, proposing a World AI Cooperation Organization at the 2025 World AI Conference (East Asia Forum 2025; gov.cn 2025a). South Korea took the EU path, enacting an AI Basic Act effective January 2026 (the second comprehensive regime after the EU, though far lighter, with fines capped near 21,000 US dollars) (Cooley 2026). Japan went the opposite way with an innovation-first AI Promotion Act (2025) carrying no penalties (White & Case 2025). India and Singapore are light-touch, India through governance guidelines rather than a standalone law, Singapore through a voluntary framework paired with its AI Verify testing toolkit (NeGD 2025; Cambridge 2025).
 
-## 3. Funding and capital
+# 3. Funding and capital
 
 The United States dominates AI capital to a degree that structures the entire field. By the Stanford AI Index, United States private AI investment in 2025 was roughly 285.9 billion dollars against China's 12.4 billion, a gap of about 23 times, and the United States captured on the order of 83 percent of global private AI investment (Stanford HAI 2025; IEEE Spectrum 2026). Within the United States, AI startups absorbed about 222 billion dollars, roughly 65 percent of all United States venture capital (PitchBook 2026). Mega-rounds defined the year: OpenAI raised at a 300-billion-dollar valuation and later higher, Anthropic's valuation climbed toward the high hundreds of billions, and xAI raised at 200 billion or more (Visual Capitalist 2025). These valuations are press-reported and should be read as directional.
+
+![Figure 2. Private AI investment, 2025: the United States captured roughly 83 percent of the global total (Stanford AI Index).](figures-report/investment_gap.png)
+
+*Figure 2. Private AI investment, 2025: the United States captured roughly 83 percent of the global total (Stanford AI Index).*
+
 
 Europe's problem is structural rather than one of ambition. European AI startups raised a record 21.6 billion dollars in 2025, led by Mistral (valued near 11.7 billion euros, with ASML taking roughly 11 percent), Helsing, ElevenLabs, and others, but the continent has a thin late-stage capital layer and few systemic challengers to United States cloud providers (Tech.eu 2026; CNBC 2025a). China presents a third model: private venture capital fell to under a quarter of its prior-year level, and state guidance funds filled the gap, with government-linked AI deals rising from fewer than ten per year before 2018 to more than 140 in 2025 (Fortune 2026).
 
@@ -47,37 +57,57 @@ Government support differs in kind, not just amount. The United States funds AI 
 
 Regulatory leniency and talent policy compound these differences. The United Kingdom is the most explicitly pro-innovation rules-based regime, with a financial-conduct sandbox and a stated tolerance for failure; the EU mandates regulatory sandboxes but has delayed them to 2027, with only about eight of 27 member states ready; China is permissive on deployment speed while strict on speech and data (FCA 2025; Orrick 2026). On talent, the two largest systems moved in opposite directions in the same year: the United States imposed a 100,000-dollar fee on each H-1B petition in September 2025, a measure widely described as a tax on startups given that roughly 60 percent of top United States AI startups had an immigrant founder, while China launched an uncapped, employer-sponsorship-free K-visa for STEM and AI talent in October 2025, timed to absorb the talent the United States was now pricing out (Bulletin of the Atomic Scientists 2025; C&EN 2025).
 
-## 4. Technical developments
+# 4. Technical developments
 
-### 4.1 The chip war and the constraint it imposes
+## 4.1 The chip war and the constraint it imposes
 
 The single constraint that shapes every region's technical strategy is access to advanced compute. United States export controls escalated steadily from the first advanced-chip rules of October 2022, through the closing of the A800/H800 loophole in October 2023, to the first high-bandwidth-memory controls and 140 new entity-list designations in December 2024 (CSET 2023). The January 2025 "AI Diffusion Rule," a three-tier country framework, was rescinded in May 2025, two days before it took effect; by January 2026 the H200 and comparable parts were moved to case-by-case licensing under a 25 percent tariff, a 50 percent volume cap, and United States testing requirements (BIS 2025; Introl 2026). The NVIDIA H20 saga captured the volatility: an effective April 2025 ban triggered a multi-billion-dollar charge, after which sales resumed in July under a reported, and never formally finalized, arrangement giving the United States government 15 percent of NVIDIA's China revenue, even as China discouraged purchases and banned a workaround consumer card during Jensen Huang's May 2026 visit (Tom's Hardware 2025; PBS 2025).
 
-### 4.2 Two paths to better models: scale versus constraint
+![Figure 3. United States chip-export controls, 2022 to 2026: escalation, an abrupt 2025 reversal, and China's pivot to domestic silicon.](figures-report/chip_war_timeline.png)
+
+*Figure 3. United States chip-export controls, 2022 to 2026: escalation, an abrupt 2025 reversal, and China's pivot to domestic silicon.*
+
+
+## 4.2 Two paths to better models: scale versus constraint
 
 The deeper technical story is that the constraint produced two divergent innovation paths. The United States answers the race with scale: Project Stargate (up to 500 billion dollars and 10 gigawatts by 2029), roughly 700 billion dollars of hyperscaler capital expenditure planned for 2026, and frontier models kept closed (OpenAI 2025; CNBC 2026a). With abundant GPUs there is little pressure to economize. China, capped on advanced chips, has been pushed toward methodological efficiency: mixture-of-experts architectures, distillation, DeepSeek's reported roughly 6-million-dollar training run, and cheap inference. The provocative reading, and one worth stating plainly, is that the export-control regime may be backfiring, driving genuine methodology innovation in China while the United States mostly adds hardware. Europe's technical leverage sits upstream of both: ASML's near-monopoly on extreme-ultraviolet lithography is the chokepoint through which the controls themselves operate (ASML 2026).
 
-### 4.3 The open-weight surge
+## 4.3 The open-weight surge
 
 DeepSeek R1, released January 20, 2025 under an MIT license and reportedly trained for a small fraction of frontier budgets, topped the United States App Store and erased on the order of 600 billion dollars of NVIDIA market value in a single day (Britannica 2025). It catalyzed a broad Chinese open-weight ecosystem, Alibaba's Qwen, Baidu's Ernie, Zhipu's GLM, Moonshot's Kimi, ByteDance's Doubao, and Huawei's Pangu, that now outpaces the West in model count and, by some measures, in usage: Chinese open models reached roughly 30 to 45 percent of weekly traffic on a major model router by early 2026, and Chinese open-model downloads narrowly passed United States downloads in the year to August 2025 (MIT Technology Review 2026; Stanford HAI 2025b). The strategic consequence is that the Global South increasingly deploys Chinese open weights for "AI sovereignty," a point developed in Section 7.
 
-### 4.4 Asia owns the hardware
+![Figure 4. China's open-weight surge: from about 1 percent to over 40 percent of usage on a major model router within a year.](figures-report/open_weight_rise.png)
+
+*Figure 4. China's open-weight surge: from about 1 percent to over 40 percent of usage on a major model router within a year.*
+
+
+## 4.4 Asia owns the hardware
 
 Where Asia is genuinely unified and dominant is the physical supply chain. Taiwan's TSMC fabricates essentially all leading-edge AI logic, and its advanced-packaging capacity (CoWoS), more than 60 percent of which NVIDIA has booked, is the true bottleneck (wccftech 2026). South Korea owns the memory: SK Hynix holds roughly 62 percent of high-bandwidth memory, is NVIDIA's lead supplier, and is set to provide about two-thirds of HBM4 for NVIDIA's next platform (CNBC 2026b; TrendForce 2026). Taiwan's Foxconn assembles more than 40 percent of the world's AI servers (Foxconn 2025). The Taiwan-Korea hardware spine is the region's structural lock on the entire industry.
 
-## 5. Deployment and adoption landscape
+# 5. Deployment and adoption landscape
 
 Capability and capital are not the same as realized value, and the 2025 evidence makes the distinction stark. McKinsey's late-2025 survey found that 88 percent of organizations use AI in at least one function, but only about a third have scaled it and only 39 percent report any earnings impact; the survey put Greater China (56 percent) and North America (57 percent) at near-parity on overall use (McKinsey 2025). Europe lags structurally: Eurostat reported that only 20 percent of EU enterprises used AI in 2025 (Eurostat 2025). The methodologies differ (Eurostat measures formal adoption, McKinsey is a broad survey), but the direction is consistent.
+
+![Figure 5. Enterprise AI use by region. Eurostat (formal adoption) and McKinsey (broad survey) use different definitions; the direction is consistent.](figures-report/enterprise_adoption.png)
+
+*Figure 5. Enterprise AI use by region. Eurostat (formal adoption) and McKinsey (broad survey) use different definitions; the direction is consistent.*
+
 
 The deployment channel differs by region. China deploys through super-apps and the state, embedding agents in WeChat and pursuing agentic commerce. The United States deploys through the enterprise-SaaS vendor layer, where buying from a specialized vendor succeeds roughly twice as often as building in-house. Europe's deployment is gated by its own compliance regime, with around 60 percent of EU and UK developers reporting AI Act-related launch delays (CNBC 2026c; Fortune 2025).
 
 The headline of the period is the return-on-investment gap. MIT's Project NANDA found that 95 percent of enterprise generative-AI pilots delivered no measurable profit-and-loss impact despite 30 to 40 billion dollars of spending, even as top-down estimates remained enormous (McKinsey's 2.6 to 4.4 trillion dollars per year, Goldman's roughly 7 percent of global GDP) (Fortune 2025). On the capability scoreboard the United States leads decisively, producing far more notable models than China or Europe and contributing the largest share of high-impact research and investment, while China leads on granted AI patents (Stanford HAI 2026). On government readiness, Oxford Insights ranked the United States first and China eighth in 2025, the latter up from twenty-third (Oxford Insights 2025).
 
-## 6. The clinical-AI thread
+# 6. The clinical-AI thread
 
 Deployed clinical AI is the best single test of the three governing systems, both because it has the richest peer-reviewed evidence base and because the three systems diverge most sharply there. Most deployed clinical AI today is, in fact, radiology: imaging dominates the regulated landscape in every region.
 
-### 6.1 Regulation by region
+![Figure 6. How clinical AI reaches patients: three regulatory pathways.](figures-report/clinical_pathways.png)
+
+*Figure 6. How clinical AI reaches patients: three regulatory pathways.*
+
+
+## 6.1 Regulation by region
 
 The United States regulates device by device. The Food and Drug Administration had authorized on the order of 1,200 to 1,451 AI/ML-enabled medical devices by the end of 2025 (a peer-reviewed snapshot counted 1,016 through mid-2025; industry trackers put the end-2025 figure near 1,451), roughly 76 percent of them in radiology, with a record number cleared in 2025 (Bedi et al. 2025; IntuitionLabs 2025). A separate analysis of 27 years of AI/ML device recalls confirms the scale and the design-and-software-change failure modes that dominate them (Chen et al. 2025). The Predetermined Change Control Plan framework (finalized December 2024) lets manufacturers pre-authorize model updates, and a January 2026 guidance eased oversight of clinical-decision-support software, but it is conspicuously silent on generative and large-language-model tools, leaving a regulatory void (FDA 2026; Covington 2026). Reimbursement, not approval, is the binding constraint: most AI tools carry only temporary CPT Category III codes, and a 2025 Health Tech Investment Act proposes a durable Medicare pathway (Bipartisan Policy Center 2025).
 
@@ -85,31 +115,41 @@ Europe applies the heaviest burden. Medical AI is automatically high-risk under 
 
 China deploys at a scale neither matches. Its National Medical Products Administration had approved 154 AI medical devices by mid-2025, roughly 80 percent of them the higher-risk Class III with mandatory trials, at a compound annual growth rate near 50 percent (JMIR 2026). More striking is deployment: roughly 261 hospitals locally deployed DeepSeek-R1 in the first quarter of 2025, mostly tertiary centers, and Ant Group's AQ application links more than 5,000 hospitals, about a million doctors, and over 100 million users (Nature Medicine 2025; Baidu Baike 2026). South Korea has become a clinical-AI exporter (Lunit and VUNO, with FDA clearances and roughly a million mammograms per year), and India runs population-scale screening through Qure.ai's national tuberculosis program (Seoul Economic Daily 2026; Tracxn 2026).
 
-### 6.2 The human factor and the measurement problem
+![Figure 7. Cumulative AI medical-device approvals (FDA vs NMPA) and the contrast in deployment scale.](figures-report/clinical_ai.png)
+
+*Figure 7. Cumulative AI medical-device approvals (FDA vs NMPA) and the contrast in deployment scale.*
+
+
+## 6.2 The human factor and the measurement problem
 
 Two findings cut against techno-optimism. First, the human-AI interaction, not raw model accuracy, decides clinical value. A randomized trial found that giving physicians a large language model did not significantly improve their diagnostic reasoning, even though the model alone scored well, because clinicians underused it (Goh et al. 2024). Over-reliance carries its own hazard: endoscopists in a 2025 study detected fewer adenomas after routine exposure to AI, an automation-bias and deskilling effect (Budzyn et al. 2025). Notably, this evidence is largely Western; China's population-scale deployment has outpaced interaction research.
 
 Second, the field is getting good at measuring what models can say, not whether they help patients. New physician-built benchmarks (HealthBench, with rubrics from 262 doctors; HealthAdminBench, for healthcare-administration agents) grade clinical capability against expert opinion (Arora et al. 2025; Bedi et al. 2026). But the broader scoping review of randomized controlled trials evaluating AI in clinical practice finds the trial evidence still thin and early-stage (Han et al. 2024). Most deployed clinical AI is validated against expert labels rather than patient outcomes, and high agreement with a clinician is not the same as being right about the patient. AI is even used against patients: insurers deploy it to deny coverage (Mello and Rose 2024).
 
-### 6.3 The clinical synthesis
+![Figure 8. The validation gap: most deployed clinical AI is graded against expert labels, not patient outcomes.](figures-report/validation_ladder.png)
+
+*Figure 8. The validation gap: most deployed clinical AI is graded against expert labels, not patient outcomes.*
+
+
+## 6.3 The clinical synthesis
 
 The same regulate, build, deploy split that defines AI broadly defines clinical AI specifically. The United States approves the most discrete tools but is reimbursement-starved and has no pathway for generative clinical AI. Europe is the most heavily regulated vertical. China deploys at population scale under lighter, state-coordinated oversight. The bottleneck on whether clinical AI reaches patients is institutional, regulation, payment, and coordination, more than it is a question of model quality.
 
-## 7. Beyond the big three
+# 7. Beyond the big three
 
 Two further actors matter without rising to the level of a fourth hub. The Gulf states bring capital rather than models: Stargate UAE (5 gigawatts, led by G42 and MGX), Saudi Arabia's HUMAIN, and MGX's commitment of up to 500 billion dollars to United States Stargate represent abundant capital and compute atop thin domestic talent and markets (Middle East Institute 2025). The Global South is the deployment battleground, where United States and Chinese open models compete for the next billion users and where sovereign-language models (SEA-LION, Sahabat-AI, TAIDE) run on rented, increasingly Chinese, open weights. Singapore's national program switching its base model from Meta's Llama to Alibaba's Qwen in November 2025 is the sharpest single illustration: a United States-aligned government building on a Chinese foundation (TechNode 2025).
 
-## 8. Synthesis and outlook
+# 8. Synthesis and outlook
 
 Three regions, three governing systems. The United States leads on models, capital, and device approvals but is increasingly constrained by power and, now, talent cost. Europe leads on regulation and holds one hardware chokepoint (ASML) but builds little. Asia, led by China, leads on deployment, open-weight reach, and ownership of the hardware spine, constrained mainly by access to advanced chips, a constraint it is actively engineering around. No region does regulate, build, and deploy all well.
 
 Three implications follow. First, the open-versus-closed split is the structural story, and China's open weights are becoming global infrastructure, itself a geopolitical outcome. Second, each region's binding constraint differs, and the interesting open question is whether the United States power constraint or the China chip constraint binds harder over the next two years. Third, in medicine the lesson is sharpest: the deployed-AI bottleneck is institutional, and the field should move its success metric from agreement with expert labels toward measured patient outcomes.
 
-## Caveats
+# Caveats
 
 Several figures are press-reported rather than company-confirmed, including the largest valuations (Anthropic, xAI, several Chinese labs) and the NVIDIA revenue-share and tariff terms, which are political understandings rather than signed contracts. China's data-center and spare-power projections are analyst estimates. Adoption percentages mix methodologies (formal adoption versus broad survey) and should not be conflated. Open-weight usage and download metrics measure different things. The FDA cumulative device count varies by source and date. Named deployed traditional-Chinese-medicine diagnostic systems remain largely research-stage and were not firmly verified.
 
-## References
+# References
 
 Policy and regulation
 - Wiley, "President Trump Revokes Biden Administration's AI EO" (2025). https://www.wiley.law/alert-President-Trump-Revokes-Biden-Administrations-AI-EO-What-To-Know

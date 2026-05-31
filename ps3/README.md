@@ -1,4 +1,4 @@
-# PS3 — Three Operating Systems for (Clinical) AI
+# PS3 — Three Governing Systems for (Clinical) AI
 
 CPH 200C Problem Set 3 (Recent Advances in Deployed Clinical Models). Deliverable: a 5–15 min class presentation. **Authors: Curtis Chambers · Jinchi Wei.**
 
@@ -18,7 +18,7 @@ Topic (pset #10, additional clinical applications): how AI deployment differs by
 
 ## Thesis
 
-Three regions run three different AI operating systems: **US = market-led + closed frontier + capital dominance; Europe = comprehensive regulation + little building; Asia (China-led) = state-driven + open-weight + population-scale deployment + owns the hardware.** The same split defines clinical AI: the US *approves* the most tools, Europe *regulates* hardest, Asia *deploys* at the most scale. The deployed-AI bottleneck is institutional (regulation, payment, coordination), not model quality.
+Three regions run three different AI governing systems: **US = market-led + closed frontier + capital dominance; Europe = comprehensive regulation + little building; Asia (China-led) = state-driven + open-weight + population-scale deployment + owns the hardware.** The same split defines clinical AI: the US *approves* the most tools, Europe *regulates* hardest, Asia *deploys* at the most scale. The deployed-AI bottleneck is institutional (regulation, payment, coordination), not model quality.
 
 A sharper sub-thesis (Curtis): US export controls may be backfiring — the GPU ceiling is pushing China toward genuine method innovation (MoE, distillation, low-cost training) while the US mostly scales hardware.
 

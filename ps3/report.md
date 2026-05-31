@@ -2,7 +2,7 @@
 
 Source-of-truth for the deck `regional-ai-deployment`. Compiled 2026-05-30 from a 7-agent parallel web sweep + the local `china-geopolitics` autofeeder. Lens: broad AI deployment with a healthcare/clinical-AI thread. Every nontrivial claim carries a source; figures flagged as estimates/press-reported are marked.
 
-> **The one-line thesis:** three regions, three operating systems. **US = market-led + light federal + closed frontier + capital dominance.** **EU = comprehensive horizontal regulation (AI Act) + sovereignty money but little frontier building.** **China = state-driven vertical rules + industrial policy + open-weight export strategy + population-scale deployment.** They differ less in *whether* they deploy AI than in *how* — and the gap between research and realized deployment is wide everywhere.
+> **The one-line thesis:** three regions, three governing systems. **US = market-led + light federal + closed frontier + capital dominance.** **EU = comprehensive horizontal regulation (AI Act) + sovereignty money but little frontier building.** **China = state-driven vertical rules + industrial policy + open-weight export strategy + population-scale deployment.** They differ less in *whether* they deploy AI than in *how* — and the gap between research and realized deployment is wide everywhere.
 
 ---
 

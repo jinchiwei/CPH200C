@@ -1,5 +1,5 @@
 ---
-title: "Three Operating Systems for Clinical AI"
+title: "Three Governing Systems for Clinical AI"
 eyebrow: "CPH 200C PS3 · CLINICAL AI BY REGION"
 subtitle: "Why deployed clinical AI looks different across the US, Europe, and Asia: policy, funding, technical developments, and landscape"
 name: "Curtis Chambers  ·  Jinchi Wei"
@@ -11,7 +11,7 @@ name_cjk: ""
 
 ## The lens: deployed clinical AI
 
-Three regions run different AI operating systems. We use deployed clinical AI as the test case: it has the richest peer-reviewed evidence base and is where the three systems diverge most sharply.
+Three regions run different AI governing systems. We use deployed clinical AI as the test case: it has the richest peer-reviewed evidence base and is where the three systems diverge most sharply.
 
 ---
 
@@ -87,7 +87,7 @@ The deployment question is not model accuracy but the human-AI interaction: an R
 
 ## Regulate, build, deploy, in medicine
 
-The same three operating systems, applied to clinical AI: the bottleneck is institutional, not just the model.
+The same three governing systems, applied to clinical AI: the bottleneck is institutional, not just the model.
 
 ---
 

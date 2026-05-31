@@ -55,6 +55,6 @@ catboost_info/
 logs/
 
 # --- ps3 build scratch + loose working files (not committed) ---
-ps3/regional-ai-deployment-build/
+ps3/regional-ai-deployment/
 ps1-2/psets/
 **/pset*.pdf

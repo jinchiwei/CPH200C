@@ -1,16 +1,16 @@
 {
-  "deck_md_hash": "ea7109622001454d573e072ec5224239a48d0dbc7abc3a499e5088a5519bb2d2",
+  "deck_md_hash": "480cca21c27aaf60c9fe6e1e61a13fbea1d43a00993d668edc478ead50622ed7",
   "mode": "expressive",
   "shake_seed": "972ca3e26c43e94ec1d35ee05487a2a7675285f8c29e9e0889d023f275c7793a",
   "slides": [
     {
-      "content_hash": "e6472c86eda5868a460d9bd10ab943277588e8be75179d044e96b14924c11b32",
+      "content_hash": "be4ea963379a48543979112cdde0681e2c0540225502debc0791e59f2b71fda7",
       "kind": "freeform",
       "params": {
         "_provenance": "agent",
-        "code": "gw=body_w*0.55\n_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/governance_models.png\", left=body_l, top=body_top+0.05, max_w=gw, max_h=body_h-0.95)\n_add_text(slide, \"Three operating systems (US / EU / Asia), tested on one case.\", left=body_l, top=body_top+body_h-0.82, width=gw, height=0.5, size=12.5, color_rgb=INK_RGB, font=SANS_FONT)\nxw=body_w*0.38; xx=body_l+body_w-xw\n_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/chest_xray_pd.png\", left=xx, top=body_top+0.05, max_w=xw, max_h=body_h-1.0)\n_add_text(slide, \"Deployed clinical AI is mostly radiology, the richest-evidence test case.\", left=xx, top=body_top+body_h-0.9, width=xw, height=0.5, size=12, color_rgb=INK_RGB, font=SANS_FONT)\n_add_text(slide, \"Chest radiograph: public domain, Wikimedia Commons.\", left=xx, top=body_top+body_h-0.4, width=xw, height=0.26, size=9, color_rgb=MUTED_RGB, font=MONO_FONT)\n_add_text(slide, \"Evidence base: npj Digital Medicine - Nature Medicine - Lancet Digital Health - JAMA - JMIR - Stanford AI Index 2026 - MIT NANDA\", left=body_l, top=body_top+body_h-0.22, width=gw, height=0.24, size=9.5, color_rgb=MUTED_RGB, font=MONO_FONT)",
+        "code": "gw=body_w*0.55\n_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/governance_models.png\", left=body_l, top=body_top+0.05, max_w=gw, max_h=body_h-0.95)\n_add_text(slide, \"Three governing systems (US / EU / Asia), tested on one case.\", left=body_l, top=body_top+body_h-0.82, width=gw, height=0.5, size=12.5, color_rgb=INK_RGB, font=SANS_FONT)\nxw=body_w*0.38; xx=body_l+body_w-xw\n_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/chest_xray_pd.png\", left=xx, top=body_top+0.05, max_w=xw, max_h=body_h-1.0)\n_add_text(slide, \"Deployed clinical AI is mostly radiology, the richest-evidence test case.\", left=xx, top=body_top+body_h-0.9, width=xw, height=0.5, size=12, color_rgb=INK_RGB, font=SANS_FONT)\n_add_text(slide, \"Chest radiograph: public domain, Wikimedia Commons.\", left=xx, top=body_top+body_h-0.4, width=xw, height=0.26, size=9, color_rgb=MUTED_RGB, font=MONO_FONT)\n_add_text(slide, \"Evidence base: npj Digital Medicine - Nature Medicine - Lancet Digital Health - JAMA - JMIR - Stanford AI Index 2026 - MIT NANDA\", left=body_l, top=body_top+body_h-0.22, width=gw, height=0.24, size=9.5, color_rgb=MUTED_RGB, font=MONO_FONT)",
         "lede": "",
-        "notes": "The lens\nSet the frame: three regional AI operating systems, tested on deployed clinical AI because that is where the peer-reviewed evidence is strongest and the divergence sharpest. Read the evidence-base line aloud so the audience knows this is research-grounded. Then walk the four axes: policy, funding, technical, landscape.",
+        "notes": "The lens\nSet the frame: three regional AI governing systems, tested on deployed clinical AI because that is where the peer-reviewed evidence is strongest and the divergence sharpest. Read the evidence-base line aloud so the audience knows this is research-grounded. Then walk the four axes: policy, funding, technical, landscape.",
         "section_label": "",
         "title": "The lens: deployed clinical AI"
       },
@@ -187,7 +187,7 @@
       "slide_id": "h1-landscape/h2-clinician-and-ai-help-or-hazard"
     },
     {
-      "content_hash": "1bb343ea09cabcb9972a83bb165c519280fb59c6cb243f70ebb65e4971a77e10-divider",
+      "content_hash": "bf17bf0dfa94ad01627e67daa90fe3d9612d92f0d510f2703650eb4a5e8285a7-divider",
       "kind": "section-divider",
       "params": {
         "accent_hex": "#40E0D0",
@@ -197,13 +197,13 @@
       "slide_id": "divider-h1-synthesis/h2-regulate-build-deploy-in-medicine"
     },
     {
-      "content_hash": "1bb343ea09cabcb9972a83bb165c519280fb59c6cb243f70ebb65e4971a77e10",
+      "content_hash": "bf17bf0dfa94ad01627e67daa90fe3d9612d92f0d510f2703650eb4a5e8285a7",
       "kind": "freeform",
       "params": {
         "_provenance": "agent",
         "code": "_fit_image(slide, \"/Users/jinchiwei/arcadia/cph/cph200c/ps3/regional-ai-deployment/figures/clinical_pathways.png\", left=body_l, top=body_top, max_w=body_w, max_h=body_h-1.0)\nby=body_top+body_h-0.85\n_add_rect(slide,left=body_l,top=by,width=body_w,height=0.85,fill_rgb=BLUEVIOLET_RGB)\n_add_text(slide,\"The bottleneck on deployed clinical AI is institutional, regulation, payment, and coordination, not model quality.\",left=body_l+0.34,top=by,width=body_w-0.68,height=0.85,size=14.5,color_rgb=_text_on(BLUEVIOLET_RGB),font=SANS_FONT,bold=True,anchor=MSO_ANCHOR.MIDDLE)",
         "lede": "",
-        "notes": "Synthesis\nThe whole talk in one figure: three pathways clinical AI takes to patients. US approves device-by-device but stalls at reimbursement. Europe stacks the AI Act on device law, the slowest. China runs NMPA to state procurement to population-scale deployment. The band states the lesson: whether clinical AI reaches patients is decided by the institutional operating system, regulation, payment, coordination, more than by the model. Transition: takeaways.",
+        "notes": "Synthesis\nThe whole talk in one figure: three pathways clinical AI takes to patients. US approves device-by-device but stalls at reimbursement. Europe stacks the AI Act on device law, the slowest. China runs NMPA to state procurement to population-scale deployment. The band states the lesson: whether clinical AI reaches patients is decided by the institutional governing system, regulation, payment, coordination, more than by the model. Transition: takeaways.",
         "section_label": "Synthesis",
         "title": "Regulate, build, deploy, in medicine"
       },
@@ -214,7 +214,7 @@
       "kind": "freeform",
       "params": {
         "_provenance": "agent",
-        "code": "items=[(\"01\",\"The bottleneck on deployed clinical AI is institutional, regulation, payment, coordination, not model quality.\", TURQUOISE_RGB),\n(\"02\",\"Same three operating systems define clinical AI: the US approves, Europe regulates, Asia deploys.\", DEEPPINK_RGB),\n(\"03\",\"Open weights reach the bedside fastest under state coordination; the US and EU still lack a generative-clinical-AI pathway.\", AMBER_RGB),\n(\"04\",\"Measure what matters: shift clinical-AI evaluation from agreement-with-labels to patient outcomes.\", BLUEVIOLET_RGB)]\nbh=(body_h-0.45)/4\nfor i in range(4):\n    num,txt,col=items[i]; y=body_top+i*(bh+0.15)\n    _add_rect(slide,left=body_l,top=y,width=body_w,height=bh,fill_rgb=WHITE_RGB)\n    _add_rect(slide,left=body_l,top=y,width=1.05,height=bh,fill_rgb=col)\n    _add_text(slide,num,left=body_l,top=y,width=1.05,height=bh,size=26,color_rgb=_text_on(col),font=MONO_FONT,bold=True,align=PP_ALIGN.CENTER,anchor=MSO_ANCHOR.MIDDLE)\n    _add_text(slide,txt,left=body_l+1.32,top=y,width=body_w-1.6,height=bh,size=13.5,color_rgb=INK_RGB,font=SANS_FONT,anchor=MSO_ANCHOR.MIDDLE)",
+        "code": "items=[(\"01\",\"The bottleneck on deployed clinical AI is institutional, regulation, payment, coordination, not model quality.\", TURQUOISE_RGB),\n(\"02\",\"Same three governing systems define clinical AI: the US approves, Europe regulates, Asia deploys.\", DEEPPINK_RGB),\n(\"03\",\"Open weights reach the bedside fastest under state coordination; the US and EU still lack a generative-clinical-AI pathway.\", AMBER_RGB),\n(\"04\",\"Measure what matters: shift clinical-AI evaluation from agreement-with-labels to patient outcomes.\", BLUEVIOLET_RGB)]\nbh=(body_h-0.45)/4\nfor i in range(4):\n    num,txt,col=items[i]; y=body_top+i*(bh+0.15)\n    _add_rect(slide,left=body_l,top=y,width=body_w,height=bh,fill_rgb=WHITE_RGB)\n    _add_rect(slide,left=body_l,top=y,width=1.05,height=bh,fill_rgb=col)\n    _add_text(slide,num,left=body_l,top=y,width=1.05,height=bh,size=26,color_rgb=_text_on(col),font=MONO_FONT,bold=True,align=PP_ALIGN.CENTER,anchor=MSO_ANCHOR.MIDDLE)\n    _add_text(slide,txt,left=body_l+1.32,top=y,width=body_w-1.6,height=bh,size=13.5,color_rgb=INK_RGB,font=SANS_FONT,anchor=MSO_ANCHOR.MIDDLE)",
         "lede": "",
         "notes": "Takeaways\nFour closers: one, the bottleneck is institutional not technical. Two, the regulate-build-deploy split holds, US approves, Europe regulates, Asia deploys. Three, open weights reach the bedside fastest under state coordination, while the US and EU lack a generative-clinical pathway. Four, the field needs to measure patient outcomes, not label-agreement. Then references and questions.",
         "section_label": "Synthesis",

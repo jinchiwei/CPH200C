@@ -21,7 +21,7 @@ cph200c/
 ## Problem sets
 
 - **PS1 + PS2 — Risk Stratification** (combined) → `ps1-2/`. Predict 30-day readmission on UCI Diabetes 130-US-Hospitals. Linear / tree / NN + LLM eval + distribution shift.
-- **PS3 — Recent Advances in Deployed Clinical Models** → `ps3/`. A 15-min talk: "Three Operating Systems for (Clinical) AI" — how AI deployment differs across the US, Europe, and Asia (policy / funding / technical / landscape), with deployed clinical AI as the test case. Authors: Curtis Chambers · Jinchi Wei. See `ps3/README.md`.
+- **PS3 — Recent Advances in Deployed Clinical Models** → `ps3/`. A 15-min talk: "Three Governing Systems for (Clinical) AI" — how AI deployment differs across the US, Europe, and Asia (policy / funding / technical / landscape), with deployed clinical AI as the test case. Authors: Curtis Chambers · Jinchi Wei. See `ps3/README.md`.
 
 ## Environment
 

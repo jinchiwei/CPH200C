@@ -53,3 +53,8 @@ catboost_info/
 
 # SLURM stdout / stderr (per-task logs)
 logs/
+
+# --- ps3 build scratch + loose working files (not committed) ---
+ps3/regional-ai-deployment-build/
+ps1-2/psets/
+**/pset*.pdf

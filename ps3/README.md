@@ -11,7 +11,9 @@ Topic (pset #10, additional clinical applications): how AI deployment differs by
 | `CPH200C_PS3_Chambers-Wei.pptx` | **The talk** (~15 min). 21 slides, clinical-AI-centered, organized by the four axes → synthesis. Speaker notes embedded in the PowerPoint notes pane. |
 | `CPH200C_PS3_Chambers-Wei.pdf` | Slides as PDF. |
 | `CPH200C_PS3_Chambers-Wei_notes.pdf` | Presenter handout: one page per slide (slide image + full speaker notes). |
-| `report.md` | The cited research dossier behind the talk (the "lit review"): every region × scope + the clinical-AI cross-comparison, with sourced claims and caveats. |
+| `CPH200C_PS3_report.pdf` / `.docx` | **The written report** (~16 pp, Jin-branded): a comprehensive prose treatment of all four scopes + the clinical-AI thread, with in-text citations and a full reference list. Built from `report.md`. |
+| `report.md` | Source markdown for the written report (prose, cited). |
+| `research.md` | The underlying cited dossier / source notes (bullet form): every region × scope + the clinical-AI cross-comparison, with URLs and caveats. |
 | `reference_deck_full.pptx/.pdf` | Supplementary 39-page comprehensive reference deck (broad US/EU/Asia comparison across all scopes). |
 | `talk-15min.md` + `.layout.json` | Build source: slide-delimited markdown + the build-pptx layout sidecar (reproducible re-render). |
 | `figs/` | Analytical figures (matplotlib, brand-styled) + the public-domain chest radiograph used on the lens slide. |

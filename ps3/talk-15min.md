@@ -21,6 +21,12 @@ Influential thinkers in China, the US, and Europe each forecast how the AI race 
 
 ---
 
+## Asia beyond China
+
+China is the heavyweight, but the third governing system is not one country: Korea, Japan, India, and Southeast Asia each run their own AI programs.
+
+---
+
 # Policy
 
 ## Regulating clinical AI
@@ -57,6 +63,12 @@ The open-versus-closed split shows up fastest in medicine: China deployed an ope
 
 ---
 
+## The frontier standing: who actually leads
+
+China stays remarkably close and wins on cost, but the absolute frontier is still American. Recognizing that matters.
+
+---
+
 ## Evaluating clinical AI: can we even measure it?
 
 New physician-built benchmarks test what clinical models can say. None yet test whether they help patients, which is the gap that matters.
@@ -68,6 +80,12 @@ New physician-built benchmarks test what clinical models can say. None yet test 
 ## Who deploys clinical AI at scale
 
 The US approves the most discrete tools, Europe regulates the hardest, and Asia (China-led) deploys at population scale.
+
+---
+
+## Real-world clinical AI, by region
+
+The same split, in named systems actually in hospitals today: US commercial scale, Europe's autonomy milestone, China's population-scale screening.
 
 ---
 

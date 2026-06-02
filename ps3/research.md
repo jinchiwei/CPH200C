@@ -183,3 +183,31 @@ The third pillar is **Asia**, China-led but genuinely heterogeneous. Added 2026-
 - **Global South = deployment battleground:** US vs Chinese open models for the next billion users; sovereign-language models (SEA-LION, Sahabat, TAIDE) on rented compute, increasingly Chinese open weights.
 
 **Synthesis:** Three hubs (US, Europe, Asia) build and govern AI; everyone else deploys it, increasingly on Chinese open weights, which is itself a geopolitical outcome. Within Asia: China leads on models/scale, Korea/Japan/India build sovereign stacks, and the **Taiwan-Korea hardware spine** (TSMC + HBM + Foxconn) is the region's structural lock on the whole industry.
+
+---
+
+## 9. Frontier standing & real-world deployed clinical AI (addendum)
+
+Added 2026-05-31 to give the US its due on the technical frontier and to ground the landscape claims in named, in-production systems.
+
+### Who actually holds the frontier (mid-2026)
+- **US holds the absolute frontier.** Top of public leaderboards: **Anthropic Claude Opus 4.8, OpenAI GPT-5.5, Google Gemini 3.1**. The US produced **~50 notable models in 2025 vs China's ~30** ([Artificial Analysis](https://artificialanalysis.ai/), Stanford AI Index 2026).
+- **China = fast follower, cheap + open.** Best open models stay **within ~2.7% on LMArena** and lag **~7 months** on average ([Epoch AI](https://epoch.ai/data)). **DeepSeek V4 (Apr 2026)** reached near-frontier quality at **~1/10 the cost** of comparable US models (DeepSeek-AI, V4 technical report, arXiv 2026). Near-parity-and-cheaper is **not** leading; the **proprietary top-tier lead may even be widening** as the open-weight gap narrows.
+- **Europe = thin at the frontier.** Mistral is the only serious contender; DeepMind (UK-founded) operates under US (Google) ownership.
+- **Framing correction:** DeepSeek was a real inflection (open + cheap reset expectations), but it did **not** mean China "caught up" at the frontier. The accurate story is fast-follower-on-cost-and-openness, not parity at the top.
+
+### Real-world deployed clinical AI, by region (named systems)
+- **US — commercial scale across narrow tools.** **Aidoc:** radiology + acute-triage platform at **>1,600 centers, 100M+ cases** analyzed, 30+ FDA clearances ([Aidoc](https://www.aidoc.com/)). **Viz.ai:** stroke-detection network across **~1,800 hospitals** ([Viz.ai](https://www.viz.ai/)).
+- **EU — the autonomy milestone.** **Oxipit ChestLink** (CE **Class IIb**, since acquired by **Sectra**): **world-first fully autonomous** radiology AI, auto-reports **~40% of normal chest X-rays** with no radiologist in the loop — a clearance the **FDA has not granted any product** ([Oxipit](https://oxipit.ai/)).
+- **China — population-scale screening.** **Infervision** ~**20k lung scans/day**; **Tencent Miying** in **100+ hospitals**; **Ant Group AQ** reaches **100M+ users**; **DeepSeek-R1** locally deployed across **261 hospitals** in Q1 2025 ([Nature Medicine 2025](https://www.nature.com/articles/s41591-025-03836-y); company data).
+
+**Synthesis:** the same regulate-build-deploy split shows up in real systems — the US **scales** narrow FDA-cleared tools, Europe **pioneers autonomy** under stricter rules, China **deploys at population scale** — while at the model frontier the US leads outright and China competes on cost and openness.
+
+---
+
+## 10. Huawei: "controls are backfiring" goes explicit (addendum, 2026-05-30)
+
+Fresh corroboration of the export-controls-backfiring sub-thesis, surfaced via the china-geopolitics autofeeder (2026-06-01/02 runs):
+- **Huawei's rotating chairman publicly thanked the US for export controls**, saying they "supercharged" China's semiconductor industry by forcing domestic R&D and an independent tech stack ([Tom's Hardware](https://www.tomshardware.com/tech-industry/huawei-chairman-thanks-the-us-for-supercharging-chinas-semiconductor-industry), score 0.95).
+- **Huawei pitched a new "scaling law"** centered on **data throughput rather than transistor-size shrinkage**, an explicit attempt to route around the ASML/EUV lithography it cannot buy; unveiled as a "LogicFolding" architecture ([SCMP](https://www.scmp.com/tech/tech-trends/article/3355314), score 0.90).
+- **Caveat:** both items were summary-only (full text unavailable); SCMP's own framing asks "true breakthrough, or mere hype?" Treat the architecture claim as **unverified**. The durable, citable point is the **posture** (China now openly frames the controls as counterproductive), which directly reinforces Curtis's sub-thesis and the deck's "Scale vs. constraint" slide / report §4.2.

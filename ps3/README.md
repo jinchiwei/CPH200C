@@ -8,15 +8,15 @@ Topic (pset #10, additional clinical applications): how AI deployment differs by
 
 | File | What |
 |---|---|
-| `CPH200C_PS3_Chambers-Wei.pptx` | **The talk** (~15 min). 21 slides, clinical-AI-centered, organized by the four axes → synthesis. Speaker notes embedded in the PowerPoint notes pane. |
+| `CPH200C_PS3_Chambers-Wei.pptx` | **The talk** (~15 min). 24 slides, clinical-AI-centered, organized by the four axes → synthesis. Includes the US frontier-standing slide (Opus 4.8 / GPT-5.5 / Gemini 3.1 on top; China a cheap, open fast-follower), a real-world deployed clinical-AI comparison (Aidoc / Viz.ai · Oxipit ChestLink · Infervision / Ant AQ / DeepSeek-R1), and an "Asia beyond China" slide (India / Korea / Japan / SE-Asia). Speaker notes embedded in the PowerPoint notes pane. |
 | `CPH200C_PS3_Chambers-Wei.pdf` | Slides as PDF. |
 | `CPH200C_PS3_Chambers-Wei_notes.pdf` | Presenter handout: one page per slide (slide image + full speaker notes). |
-| `CPH200C_PS3_report.pdf` / `.docx` | **The written report** (~16 pp, Jin-branded): a comprehensive prose treatment of all four scopes + the clinical-AI thread, with in-text citations and a full reference list. Built from `report.md`. |
+| `CPH200C_PS3_report.pdf` / `.docx` | **The written report** (~21 pp, Jin-branded): a comprehensive prose treatment of all four scopes + the clinical-AI thread, with in-text citations and a full reference list. Built from `report.md`. Includes §4.4 (the US frontier standing) and named real-world deployed systems in §6. |
 | `report.md` | Source markdown for the written report (prose, cited). |
 | `research.md` | The underlying cited dossier / source notes (bullet form): every region × scope + the clinical-AI cross-comparison, with URLs and caveats. |
 | `reference_deck_full.pptx/.pdf` | Supplementary 39-page comprehensive reference deck (broad US/EU/Asia comparison across all scopes). |
 | `talk-15min.md` + `.layout.json` | Build source: slide-delimited markdown + the build-pptx layout sidecar (reproducible re-render). |
-| `figs/` | Analytical figures (matplotlib, brand-styled) + the public-domain chest radiograph used on the lens slide. |
+| `figs/` | Analytical figures (matplotlib, brand-styled) + a public-domain / CC0 radiology gallery on the lens slide (chest X-ray, mammogram, retinal fundus, chest CT), each tagged with a real deployed AI system (Oxipit ChestLink, Lunit INSIGHT, IDx-DR, Infervision). |
 
 ## Thesis
 

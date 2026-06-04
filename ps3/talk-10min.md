@@ -21,12 +21,6 @@ Influential thinkers in China, the US, and Europe each forecast how the AI race 
 
 ---
 
-## Asia beyond China
-
-China is the heavyweight, but the third governing system is not one country: Korea, Japan, India, and Southeast Asia each run their own AI programs.
-
----
-
 # Policy
 
 ## Regulating clinical AI
@@ -43,6 +37,12 @@ The US dominates AI capital, but clinical AI is reimbursement-gated. The money t
 
 ---
 
+## How big is the US AI buildout?
+
+A scale check: AI infrastructure spending as a share of US GDP, set against the country's great historical buildouts.
+
+---
+
 # Technical developments
 
 ## The chip war reshapes the race
@@ -53,7 +53,7 @@ Four years of US export controls, one abrupt reversal, and China's pivot to dome
 
 ## Scale versus constraint: two paths to better models
 
-The US answers the race with scale, more compute. China, capped on GPUs, is pushed toward method innovation. Europe holds the upstream chokepoint.
+The US answers the race with scale, more compute. China, capped on GPUs, is pushed toward method innovation.
 
 ---
 
@@ -106,3 +106,11 @@ What the three systems mean for deployed clinical AI, and where this goes.
 ## Key references
 
 The peer-reviewed and primary-source evidence behind this talk.
+
+---
+
+# Supplement
+
+## Asia beyond China
+
+China is the heavyweight, but the third governing system is not one country: Korea, Japan, India, and Southeast Asia each run their own AI programs.

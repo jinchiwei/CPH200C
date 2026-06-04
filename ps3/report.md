@@ -124,7 +124,11 @@ China deploys at a scale neither matches. Its National Medical Products Administ
 *Figure 7. Cumulative AI medical-device approvals (FDA vs NMPA) and the contrast in deployment scale.*
 
 
-## 6.2 The human factor and the measurement problem
+## 6.2 Same scale, different layer of the stack
+
+A sharper way to read the deployment difference is by where in the clinical stack each region has placed AI at scale. The United States and China have both put clinical large language models into production at massive scale, but in different layers. China deploys them inside the diagnostic core, directly into diagnostic reasoning and the electronic health record, with DeepSeek-R1 running across 261 hospitals and Ant Group's AQ reaching over 100 million users and roughly 5,000 hospitals. The United States deploys them around the core, in the administrative and ambient layer: ambient scribes (Abridge, Nuance DAX), medical coding, prior authorization, and patient messaging, deliberately staying off the diagnostic decision because there is no FDA pathway for generative diagnosis. Europe occupies a third position: it is the only region to field fully autonomous diagnosis, but it does so pragmatically. Oxipit's ChestLink auto-reports only the normal chest X-rays, the roughly 15 to 40 percent of studies with no finding, and routes every positive to a radiologist, clearing the easy volume while keeping a human on anything abnormal. Same scale, three different bets on where AI sits in the clinical workflow: the United States automates the paperwork around the clinician, China augments the diagnostic reasoning, and Europe removes the human only on the cases that are clearly negative.
+
+## 6.3 The human factor and the measurement problem
 
 Two findings cut against techno-optimism. First, the human-AI interaction, not raw model accuracy, decides clinical value. A randomized trial found that giving physicians a large language model did not significantly improve their diagnostic reasoning, even though the model alone scored well, because clinicians underused it (Goh et al. 2024). Over-reliance carries its own hazard: endoscopists in a 2025 study detected fewer adenomas after routine exposure to AI, an automation-bias and deskilling effect (Budzyn et al. 2025). Notably, this evidence is largely Western; China's population-scale deployment has outpaced interaction research.
 
@@ -135,7 +139,7 @@ Second, the field is getting good at measuring what models can say, not whether 
 *Figure 8. The validation gap: most deployed clinical AI is graded against expert labels, not patient outcomes.*
 
 
-## 6.3 The clinical synthesis
+## 6.4 The clinical synthesis
 
 The same regulate, build, deploy split that defines AI broadly defines clinical AI specifically. The United States approves the most discrete tools but is reimbursement-starved and has no pathway for generative clinical AI. Europe is the most heavily regulated vertical. China deploys at population scale under lighter, state-coordinated oversight. The bottleneck on whether clinical AI reaches patients is institutional, regulation, payment, and coordination, more than it is a question of model quality.
 

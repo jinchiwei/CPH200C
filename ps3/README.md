@@ -8,14 +8,16 @@ Topic (pset #10, additional clinical applications): how AI deployment differs by
 
 | File | What |
 |---|---|
-| `CPH200C_PS3_Chambers-Wei.pptx` | **The talk** (~15 min). 24 slides, clinical-AI-centered, organized by the four axes → synthesis. Includes the US frontier-standing slide (Opus 4.8 / GPT-5.5 / Gemini 3.1 on top; China a cheap, open fast-follower), a real-world deployed clinical-AI comparison (Aidoc / Viz.ai · Oxipit ChestLink · Infervision / Ant AQ / DeepSeek-R1), and an "Asia beyond China" slide (India / Korea / Japan / SE-Asia). Speaker notes embedded in the PowerPoint notes pane. |
+| `CPH200C_PS3_Chambers-Wei.pptx` | **The talk** (~10 min, current slot). 22 slides (14 content + 5 section dividers + cover + thanks), clinical-AI-centered, organized by the four axes → synthesis. Broad-over-deep cut: keeps the intro trio, both chip-war slides, the US frontier-standing slide (Opus 4.8 / GPT-5.5 / Gemini 3.1 on top; China a cheap, open fast-follower), the real-world deployed comparison (Aidoc / Viz.ai · Oxipit ChestLink · Infervision / Ant AQ / DeepSeek-R1), "Asia beyond China" (India / Korea / Japan / SE-Asia), and ROI. Trims the two deepest methodology slides (clinical-AI measurement; clinician-AI interaction), which remain in the 15-min variant and the report. Speaker notes embedded in the PowerPoint notes pane. |
 | `CPH200C_PS3_Chambers-Wei.pdf` | Slides as PDF. |
 | `CPH200C_PS3_Chambers-Wei_notes.pdf` | Presenter handout: one page per slide (slide image + full speaker notes). |
+| `CPH200C_PS3_Chambers-Wei_15min.pptx` / `.pdf` / `_notes.pdf` | The longer **15-min variant** (24 slides) — same deck plus the two methodology slides. Kept in case the slot expands. |
 | `CPH200C_PS3_report.pdf` / `.docx` | **The written report** (~21 pp, Jin-branded): a comprehensive prose treatment of all four scopes + the clinical-AI thread, with in-text citations and a full reference list. Built from `report.md`. Includes §4.4 (the US frontier standing) and named real-world deployed systems in §6. |
 | `report.md` | Source markdown for the written report (prose, cited). |
 | `research.md` | The underlying cited dossier / source notes (bullet form): every region × scope + the clinical-AI cross-comparison, with URLs and caveats. |
 | `reference_deck_full.pptx/.pdf` | Supplementary 39-page comprehensive reference deck (broad US/EU/Asia comparison across all scopes). |
-| `talk-15min.md` + `.layout.json` | Build source: slide-delimited markdown + the build-pptx layout sidecar (reproducible re-render). |
+| `talk-10min.md` + `.layout.json` | Build source for the 10-min primary talk: slide-delimited markdown + the build-pptx layout sidecar (reproducible re-render). |
+| `talk-15min.md` + `.layout.json` | Build source for the 15-min variant. |
 | `figs/` | Analytical figures (matplotlib, brand-styled) + a public-domain / CC0 radiology gallery on the lens slide (chest X-ray, mammogram, retinal fundus, chest CT), each tagged with a real deployed AI system (Oxipit ChestLink, Lunit INSIGHT, IDx-DR, Infervision). |
 
 ## Thesis
